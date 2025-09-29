@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang ="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Module 2 Activity - Bataan Province</title>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Bataan</h1>
+        <nav>
+            <a href="#about">About</a> 
+            <a href="#tourism">Tourism</a>
+            <a href="#history">History</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <article id="about">
+            <h2>About Bataan</h2>
+            <p>Bataan is a province located in the Central Luzon region of the Philippines. It is known for its rich history, beautiful landscapes, and cultural heritage.
+            </p>
+            </article>
+
+        <section id="tourism">
+            <h2>Tourist Attraction</h2>
+            <ul>
+                <li>Mount Samat National Shrine</li>
+                <li>Las Casas Filipinas de Acuzar</li>
+                <li>Bataan National Park</li>
+                
+            </ul>
+        </section>
+
+        <section id="history">
+            <h2>History</h2>
+            <p>Bataan played a significant role during World War II, particularly during the Battle of Bataan and the subsequent Bataan Death March. The province is rich in historical landmarks and memorials.</p>
+        </section>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Information</h2>
+            <p>If you have any questions or would like to learn more about Bataan, please feel free to reach out!</p>
+            <ul>
+                
+    </main>
+
+    <footer> 
+        <p>Email:vitakaelam@gmail.com 2025 Bataan Province Info Page</p>
+    </footer>
+</body>
+</html>

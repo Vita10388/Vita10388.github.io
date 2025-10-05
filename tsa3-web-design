@@ -1,1 +1,31 @@
+<!DOCTYPE html>
+<html lang= "en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h2>My Website</h2>
+        </header>
+
+        <main>
+            <h1>About Me</h1>
+            <p1>Hello! My name is Kaela Vita. Im a student atthe Feu tech
+                <p>I'm currently studying Bachelor of Multimedia Arts</p>
+                <p>My hobbies are playing games, watching anime, and drawing</p>
+
+                <ul>
+                    <li> Drawing andigitial Art</li>
+                    <li> Playing Games</li>
+                    <li> Watching Movies</li>
+                    <li>Drawing Animations</li>
+                </ul>
+            
+                
+        </main>
+</body>
+
 

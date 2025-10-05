@@ -7,25 +7,28 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <header id ="header">
         <h2>My Website</h2>
         </header>
 
-        <main>
+        <main id="main">
             <h1>About Me</h1>
-            <p1>Hello! My name is Kaela Vita. Im a student atthe Feu tech
-                <p>I'm currently studying Bachelor of Multimedia Arts</p>
-                <p>My hobbies are playing games, watching anime, and drawing</p>
+            <p1>Hello! My name is <strong>Kaela Vita</strong>. Im a student at Feu tech
+                <p id="intro">I'm currently studying Bachelor of Multimedia Arts</p>
+                <p>My hobbies are playing games, watching movies, and drawing</p>
 
-                <ul>
+                <ul id="hobbies">
                     <li> Drawing andigitial Art</li>
                     <li> Playing Games</li>
                     <li> Watching Movies</li>
                     <li>Drawing Animations</li>
+                    <li>Photography </li>
                 </ul>
-            
+            <img id="my work"> src="image.jpg" alt="Photography" width="300" height="400">
                 
         </main>
+        <footer id="footer">
+            <p>Created by Kaela Vita</p>
+        </footer>
 </body>
-
-
+</html>

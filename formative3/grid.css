@@ -1,0 +1,15 @@
+@media (min-width: 768px) {
+    main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;  
+        gap: 20px;                       
+    }
+
+    #about, #songs, #manga, #contact {
+        grid-column: span 2;  
+    }
+
+    #projects {
+        grid-column: span 2;
+    }
+}

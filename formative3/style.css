@@ -105,3 +105,19 @@ footer {
 section {
     margin-bottom: 1rem;
 }
+
+@media (max-width: 768px) {
+    main {
+        grid-template-columns: 1fr;
+        padding: 10px;
+    }
+
+    section {
+        width: 100%;
+    }
+
+    header nav a {
+        display: block;
+        margin: 5px 0;
+    }
+}

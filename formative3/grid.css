@@ -7,10 +7,9 @@
 body {
   min-height: 100vh;
   display: flex;
-  justify-content: center; 
-  background-color: #f5f5f5; 
+  justify-content: center;
+  background-color: #0f0f0f;
 }
-
 
 .container {
   display: grid;
@@ -19,14 +18,5 @@ body {
     "header"
     "main"
     "footer";
-  max-width: 1200px;
   width: 100%;
-  min-height: 100vh;
-  background-color: #ffffff;
-}
-
-header { grid-area: header; padding: 1rem; }
-main   { grid-area: main; display: grid; grid-template-columns: 2fr 5fr 1fr; gap: 1rem; padding: 1rem; }
-footer { grid-area: footer; padding: 1rem; }
-
-.left, .mid, .right { padding: 1rem; }
+  max-width

@@ -22,22 +22,12 @@ body {
 
 header {
     grid-area: header;
-    padding: 1rem;
 }
 
 main {
     grid-area: main;
-    display: grid;
-    grid-template-columns: 2fr 5fr 1fr;
-    gap: 1rem;
-    padding: 1rem;
-}
-
-.left, .mid, .right {
-    padding: 1rem;
 }
 
 footer {
     grid-area: footer;
-    padding: 1rem;
 }

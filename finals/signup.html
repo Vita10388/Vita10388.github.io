@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign up — ArtCatalog</title>
+  <meta name="description" content="Create an account to comment on artworks." />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Create account</h1>
+    <form id="signup-form" novalidate>
+      <label>
+        Full name
+        <input type="text" name="name" id="name" required />
+        <span class="error" id="err-name" aria-live="polite"></span>
+      </label>
+
+      <label>
+        Email
+        <input type="email" name="email" id="email" required />
+        <span class="error" id="err-email"></span>
+      </label>
+
+      <label>
+        Password
+        <input type="password" name="password" id="password" required minlength="8" />
+        <span class="error" id="err-password"></span>
+      </label>
+
+      <button type="submit">Sign up</button>
+    </form>
+    <p class="muted">Note: this project has no backend — the form validates but does not actually create accounts.</p>
+  </main>
+
+  <script>
+    document.getElementById('signup-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = document.getElementById('name');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+
+      let ok = true;
+      // clear
+      document.querySelectorAll('.error').forEach(s => s.textContent = '');
+
+      if(name.value.trim().length < 2){
+        document.getElementById('err-name').textContent = 'Please enter your full name.';
+        ok = false;
+      }
+      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if(!emailPattern.test(email.value)){
+        document.getElementById('err-email').textContent = 'Enter a valid email address.';
+        ok = false;
+      }
+      if(password.value.length < 8){
+        document.getElementById('err-password').textContent = 'Password must be at least 8 characters.';
+        ok = false;
+      }
+      if(ok){
+        alert('Validation passed! (No backend in this project.)');
+        // Optionally reset form
+        // this.reset();
+      }
+    });
+  </script>
+</body>
+</html>

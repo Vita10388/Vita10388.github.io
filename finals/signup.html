@@ -1,69 +1,60 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sign up — ArtCatalog</title>
-  <meta name="description" content="Create an account to comment on artworks." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Sign Up — Art Catalog</title>
+  <meta name="description" content="Create an account to comment on artworks.">
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <main class="container">
-    <h1>Create account</h1>
-    <form id="signup-form" novalidate>
-      <label>
-        Full name
-        <input type="text" name="name" id="name" required />
-        <span class="error" id="err-name" aria-live="polite"></span>
-      </label>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">ArtCatalog</a>
+    <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+    <nav id="main-nav" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+        <li><a href="login.html">Log in</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
 
-      <label>
-        Email
-        <input type="email" name="email" id="email" required />
-        <span class="error" id="err-email"></span>
-      </label>
+<main class="container">
+  <h1>Sign Up</h1>
+  <form id="signup-form" novalidate>
+    <label>Full name<br><input type="text" id="name" required></label>
+    <span class="error" id="err-name"></span><br>
 
-      <label>
-        Password
-        <input type="password" name="password" id="password" required minlength="8" />
-        <span class="error" id="err-password"></span>
-      </label>
+    <label>Email<br><input type="email" id="email" required></label>
+    <span class="error" id="err-email"></span><br>
 
-      <button type="submit">Sign up</button>
-    </form>
-    <p class="muted">Note: this project has no backend — the form validates but does not actually create accounts.</p>
-  </main>
+    <label>Password<br><input type="password" id="password" minlength="8" required></label>
+    <span class="error" id="err-password"></span><br>
 
-  <script>
-    document.getElementById('signup-form').addEventListener('submit', function(e){
-      e.preventDefault();
-      const name = document.getElementById('name');
-      const email = document.getElementById('email');
-      const password = document.getElementById('password');
+    <button type="submit">Create Account</button>
+  </form>
+  <p>Already have an account? <a href="login.html">Log in here</a>.</p>
+</main>
 
-      let ok = true;
-      // clear
-      document.querySelectorAll('.error').forEach(s => s.textContent = '');
-
-      if(name.value.trim().length < 2){
-        document.getElementById('err-name').textContent = 'Please enter your full name.';
-        ok = false;
-      }
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if(!emailPattern.test(email.value)){
-        document.getElementById('err-email').textContent = 'Enter a valid email address.';
-        ok = false;
-      }
-      if(password.value.length < 8){
-        document.getElementById('err-password').textContent = 'Password must be at least 8 characters.';
-        ok = false;
-      }
-      if(ok){
-        alert('Validation passed! (No backend in this project.)');
-        // Optionally reset form
-        // this.reset();
-      }
-    });
-  </script>
+<script>
+document.getElementById('signup-form').addEventListener('submit',function(e){
+  e.preventDefault();
+  let ok=true;
+  document.querySelectorAll('.error').forEach(e=>e.textContent='');
+  const name=document.getElementById('name');
+  const email=document.getElementById('email');
+  const pass=document.getElementById('password');
+  if(name.value.trim().length<2){document.getElementById('err-name').textContent='Enter full name';ok=false;}
+  if(!/^[^@]+@[^@]+\.[^@]+$/.test(email.value)){document.getElementById('err-email').textContent='Invalid email';ok=false;}
+  if(pass.value.length<8){document.getElementById('err-password').textContent='At least 8 characters';ok=false;}
+  if(ok) alert('Form validated! (This is a demo.)');
+});
+</script>
 </body>
 </html>

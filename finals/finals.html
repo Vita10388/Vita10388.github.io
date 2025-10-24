@@ -1,85 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="grid.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Art Catalog — Home</title>
+  <meta name="description" content="Online art catalog showcasing curated contemporary artworks." />
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <header class="site-header">
     <div class="container">
-        <header>
-            <h1>KayKay</h1>
-            <nav>
-                <a href="#about">About Me</a> |
-                <a href="#projects">Projects</a> |
-                <a href="#songs">Favorite Songs</a> |
-                <a href="#manga">Manga Interests</a> |
-                <a href="#contact">Contact</a>
-            </nav>
-        </header>
-
-        <main>
-            <section id="about" class="col">
-                <h2>About Me</h2>
-                <article>
-                    <p>Hello. My name is Kaela Vita. I am a 2nd year BMA student at FEU Tech.
-                    I enjoy expressing myself through art, especially drawing, and I also like taking photos. 
-                    Creative projects are my passion.</p>
-                </article>
-            </section>
-
-            <section id="projects" class="col">
-                <h2>My Projects</h2>
-                <article>
-                    <p>Here are some of the academic and creative projects I've worked on.</p>
-                </article>
-                <div class="images">
-                    <p><img src="potato.jpg" alt="potato" height="250"></p>
-                </div>
-            </section>
-
-            <section id="songs" class="col">
-                <h2>Artists & Favorite Songs</h2>
-                <table>
-                    <tr>
-                        <th>Artist</th>
-                        <th>Song</th>
-                    </tr>
-                    <tr><td>Zolita</td><td>Ashley</td></tr>
-                    <tr><td>Ian Quiruz</td><td>Huling Uyayi, Ko Sinta</td></tr>
-                    <tr><td>Frank Ely</td><td>Pahingi Ako ng Kiss</td></tr>
-                    <tr><td>LANY</td><td>Cause You Have To</td></tr>
-                    <tr><td>The Ridleys</td><td>Be With You</td></tr>
-                    <tr><td>Silent Sanctuary</td><td>Ikaw Lamang</td></tr>
-                </table>
-            </section>
-
-            <section id="manga" class="col">
-                <h2>Manga I Read</h2>
-                <ul>
-                    <li>The Guy She Was Interested in Wasn’t a Guy at All</li>
-                    <li>LOVE-BULLET</li>
-                    <li>Black Lily to Sayuri-chan</li>
-                    <li>Friendly Rivalry</li>
-                    <li>Love Thy Neighbor</li>
-                    <li>I Don’t Know Which One is Love</li>
-                    <li>Soulmate</li>
-                </ul>
-            </section>
-
-            <section id="contact" class="col">
-                <h2>Contact Me</h2>
-                <p>You can reach me at:
-                    <a href="mailto:kaelamanuelvita@gmail.com">kaelamanuelvita@gmail.com</a>
-                </p>
-            </section>
-        </main>
-
-        <footer>
-            <p>&copy; 2025 Kaela Vita Portfolio. All rights reserved.</p>
-        </footer>
+      <a class="logo" href="index.html">ArtCatalog</a>
+      <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+      <nav id="main-nav" class="main-nav" role="navigation">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a href="signup.html">Sign up</a></li>
+          <li><a href="login.html">Log in</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
+
+  <main>
+    <section class="hero container">
+      <h1 id="greeting">Welcome</h1>
+      <p class="lead">Explore the latest collections and featured works.</p>
+    </section>
+
+    <section class="latest container" aria-labelledby="latest-heading">
+      <h2 id="latest-heading">Latest / Most viewed</h2>
+      <div class="art-grid" id="latest-list">
+        <!-- artwork cards inserted by JS or static fallback -->
+        <article class="art-card">
+          <img src="images/artwork1.jpg" alt="Abstract shapes in green and blue" />
+          <h3>Green Echo</h3>
+          <p class="artist">by ARTIST NAME</p>
+        </article>
+        <!-- add more cards -->
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> ArtCatalog — All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="js/app.js" defer></script>
 </body>
 </html>

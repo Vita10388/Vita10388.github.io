@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Gallery — Art Catalog</title>
+  <meta name="description" content="Explore diverse categories of art including 3D models, paintings, and more.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="container">
+    <a href="index.html" class="logo">ArtCatalog</a>
+    <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+    <nav id="main-nav" class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="gallery.html" class="active">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+        <li><a href="login.html">Log in</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="container gallery-page">
+  <section class="gallery-header">
+    <h1>Art Gallery</h1>
+    <p>Browse categories — each category shows artworks in columns (responsive).</p>
+  </section>
+
+  <!-- Example category block - duplicate/modify for all categories -->
+  <section class="art-category">
+    <h2>3D Modeling</h2>
+    <div class="gallery-grid">
+      <div class="art-card">
+        <img src="images/3d1.jpg" alt="3D model 1">
+        <div class="meta"><strong>3D Model A</strong><div class="small">by Artist A</div></div>
+      </div>
+      <div class="art-card">
+        <img src="images/3d2.jpg" alt="3D model 2">
+        <div class="meta"><strong>3D Model B</strong><div class="small">by Artist B</div></div>
+      </div>
+      <div class="art-card">
+        <img src="images/3d3.jpg" alt="3D model 3">
+        <div class="meta"><strong>3D Model C</strong><div class="small">by Artist C</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="art-category">
+    <h2>Animation Videos</h2>
+    <div class="gallery-grid">
+      <div class="art-card"><img src="images/ani1.jpg" alt="Animation 1"><div class="meta"><strong>Animation 1</strong></div></div>
+      <div class="art-card"><img src="images/ani2.jpg" alt="Animation 2"><div class="meta"><strong>Animation 2</strong></div></div>
+    </div>
+  </section>
+
+  <section class="art-category">
+    <h2>Digital Drawing</h2>
+    <div class="gallery-grid">
+      <div class="art-card"><img src="images/dig1.jpg" alt="Digital drawing 1"><div class="meta"><strong>Digital 1</strong></div></div>
+      <div class="art-card"><img src="images/dig2.jpg" alt="Digital drawing 2"><div class="meta"><strong>Digital 2</strong></div></div>
+    </div>
+  </section>
+
+  <section class="art-category">
+    <h2>Paintings</h2>
+    <div class="gallery-grid">
+      <div class="art-card"><img src="images/paint1.jpg" alt="Painting 1"><div class="meta"><strong>Painting 1</strong></div></div>
+      <div class="art-card"><img src="images/paint2.jpg" alt="Painting 2"><div class="meta"><strong>Painting 2</strong></div></div>
+    </div>
+  </section>
+
+  <section class="art-category">
+    <h2>Photography</h2>
+    <div class="gallery-grid">
+      <div class="art-card"><img src="images/photo1.jpg" alt="Photo 1"><div class="meta"><strong>Photo 1</strong></div></div>
+      <div class="art-card"><img src="images/photo2.jpg" alt="Photo 2"><div class="meta"><strong>Photo 2</strong></div></div>
+    </div>
+  </section>
+
+  <section class="art-category">
+    <h2>Short Films</h2>
+    <div class="gallery-grid">
+      <div class="art-card"><img src="images/film1.jpg" alt="Film 1"><div class="meta"><strong>Short Film 1</strong></div></div>
+    </div>
+  </section>
+
+  <section class="art-category">
+    <h2>Traditional Drawings</h2>
+    <div class="gallery-grid">
+      <div class="art-card"><img src="images/trad1.jpg" alt="Traditional drawing 1"><div class="meta"><strong>Traditional 1</strong></div></div>
+    </div>
+  </section>
+
+  <section class="art-category">
+    <h2>Typography</h2>
+    <div class="gallery-grid">
+      <div class="art-card"><img src="images/type1.jpg" alt="Typography 1"><div class="meta"><strong>Typography 1</strong></div></div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> ArtCatalog</p>
+  </div>
+</footer>
+
+<script src="js/script.js" defer></script>
+</body>
+</html>

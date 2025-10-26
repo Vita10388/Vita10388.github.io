@@ -1,11 +1,11 @@
-/* Reset defaults */
+/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Header styling */
+/* HEADER (same style.css header will still apply) */
 header {
   display: flex;
   justify-content: space-between;
@@ -29,10 +29,10 @@ header .nav-links a.active {
   color: #00bfff;
 }
 
-/* Category Bar */
+/* CATEGORY BAR */
 .category-bar {
   position: sticky;
-  top: 60px; /* stays right below header */
+  top: 60px; /* stays below header */
   background: #f5f5f5;
   display: flex;
   justify-content: space-between;
@@ -60,32 +60,79 @@ header .nav-links a.active {
   border-radius: 5px;
 }
 
-/* Gallery Layout */
+/* GALLERY */
 .gallery-container {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: center; /* centers all images */
+  flex-direction: column;
   align-items: center;
-  gap: 20px;
+  gap: 40px;
   padding: 40px;
   background: #fff;
   min-height: 100vh;
 }
 
+/* Each artwork group */
 .gallery-item {
-  width: 250px;
-  overflow: hidden;
-  border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.gallery-item img {
   width: 100%;
-  display: block;
-  border-radius: 10px;
+  max-width: 1000px;
+  text-align: center;
 }
 
-/* Hover effect: image moves slightly */
-.gallery-item:hover {
+.gallery-item h3 {
+  font-size: 1.5rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+/* Multiple images inside one category */
+.artwork-set {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+}
+
+.artwork-set img {
+  width: 250px;
+  height: auto;
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.artwork-set img:hover {
   transform: scale(1.05);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 768px) {
+  .category-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .category-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .search-box {
+    width: 100%;
+  }
+
+  .search-box input {
+    width: 100%;
+  }
+
+  .artwork-set img {
+    width: 45%;
+  }
+}
+
+@media (max-width: 480px) {
+  .artwork-set img {
+    width: 100%;
+  }
 }

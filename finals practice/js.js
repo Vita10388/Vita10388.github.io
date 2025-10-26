@@ -1,75 +1,115 @@
-// ===== Dynamic Greeting (Home Page) =====
+// script.js - shared across pages
 document.addEventListener('DOMContentLoaded', () => {
-  const greeting = document.getElementById('greeting');
-  if (greeting) {
-    const hour = new Date().getHours();
-    let message = 'Welcome to ArtCatalog';
-    if (hour < 12) message = 'Good Morning, welcome to ArtCatalog!';
-    else if (hour < 18) message = 'Good Afternoon, welcome to ArtCatalog!';
-    else message = 'Good Evening, welcome to ArtCatalog!';
-    greeting.textContent = message;
+  // Menu toggle (for mobile)
+  const menuToggle = document.getElementById('menu-toggle');
+  const mainNav = document.getElementById('main-nav');
+  if (menuToggle && mainNav) {
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mainNav.classList.toggle('open');
+      menuToggle.setAttribute('aria-expanded', String(isOpen));
+    });
   }
-});
 
-// ===== Responsive Menu Toggle =====
-const menuToggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('main-nav');
-if (menuToggle && nav) {
-  menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('open');
-  });
-}
+  // Dynamic greeting on home page (element id="greeting")
+  const greetingEl = document.getElementById('greeting');
+  if (greetingEl) {
+    const hour = new Date().getHours();
+    let greeting = 'Welcome to ArtCatalog';
+    if (hour < 12) greeting = 'Good morning — welcome to ArtCatalog';
+    else if (hour < 18) greeting = 'Good afternoon — welcome to ArtCatalog';
+    else greeting = 'Good evening — welcome to ArtCatalog';
+    // If a user is logged in, prefer personalized
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    if (currentUser && currentUser.name) greeting = `Welcome back, ${currentUser.name}!`;
+    greetingEl.textContent = greeting;
+  }
 
-// ===== Signup Form =====
-const signupForm = document.getElementById('signupForm');
-if (signupForm) {
-  signupForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const password = document.getElementById('password').value.trim();
-    const msg = document.getElementById('signupMessage');
+  // Insert current year in footer spans (if used)
+  document.querySelectorAll('#year').forEach(el => el.textContent = new Date().getFullYear());
 
-    if (!name || !email || !password) {
-      msg.textContent = "Please fill all fields.";
-      msg.style.color = "red";
-      return;
-    }
-
-    let users = JSON.parse(localStorage.getItem('users')) || [];
-    const existingUser = users.find(u => u.email === email);
-
-    if (existingUser) {
-      msg.textContent = "Email already exists. Try logging in.";
-      msg.style.color = "red";
-    } else {
-      users.push({ name, email, password });
+  /* -------------------------
+     SIGNUP
+     - saves list of users to localStorage under 'users'
+     - checks for existing email
+     ------------------------- */
+  const signupForm = document.getElementById('signupForm');
+  if (signupForm) {
+    signupForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = (document.getElementById('name') || {}).value || '';
+      const email = (document.getElementById('email') || {}).value || '';
+      const password = (document.getElementById('password') || {}).value || '';
+      const out = document.getElementById('signupMessage');
+      // simple validation
+      if (!name.trim() || !email.trim() || !password.trim()) {
+        if (out) { out.textContent = 'Please complete all fields.'; out.className='msg error'; }
+        return;
+      }
+      // get users
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const exists = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+      if (exists) {
+        if (out) { out.textContent = 'Email already registered. Try logging in.'; out.className='msg error'; }
+        return;
+      }
+      // create user object (NOTE: simple demo - passwords stored in localStorage are not secure)
+      users.push({ name: name.trim(), email: email.trim().toLowerCase(), password: password });
       localStorage.setItem('users', JSON.stringify(users));
-      msg.textContent = "Account created successfully!";
-      msg.style.color = "green";
+      if (out) { out.textContent = 'Account created successfully! You can now log in.'; out.className='msg success'; }
       signupForm.reset();
-    }
-  });
-}
+    });
+  }
 
-// ===== Login Form =====
-const loginForm = document.getElementById('loginForm');
-if (loginForm) {
-  loginForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('loginEmail').value.trim();
-    const password = document.getElementById('loginPassword').value.trim();
-    const msg = document.getElementById('loginMessage');
+  /* -------------------------
+     LOGIN
+     - checks email existence first
+     - then verifies password
+     - sets localStorage 'currentUser' on success
+     ------------------------- */
+  const loginForm = document.getElementById('loginForm');
+  if (loginForm) {
+    loginForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = (document.getElementById('loginEmail') || {}).value || '';
+      const password = (document.getElementById('loginPassword') || {}).value || '';
+      const out = document.getElementById('loginMessage');
 
-    const users = JSON.parse(localStorage.getItem('users')) || [];
-    const user = users.find(u => u.email === email && u.password === password);
+      if (!email.trim() || !password.trim()) {
+        if (out) { out.textContent = 'Please provide email and password.'; out.className='msg error'; }
+        return;
+      }
+      const users = JSON.parse(localStorage.getItem('users') || '[]');
+      const found = users.find(u => u.email.toLowerCase() === email.toLowerCase());
+      if (!found) {
+        if (out) { out.textContent = 'No account found with that email. Please sign up.'; out.className='msg error'; }
+        return;
+      }
+      if (found.password !== password) {
+        if (out) { out.textContent = 'Incorrect password. Try again.'; out.className='msg error'; }
+        return;
+      }
+      // success
+      const currentUser = { name: found.name, email: found.email };
+      localStorage.setItem('currentUser', JSON.stringify(currentUser));
+      if (out) { out.textContent = `Welcome back, ${found.name}!`; out.className='msg success'; }
 
-    if (user) {
-      msg.textContent = `Welcome back, ${user.name}!`;
-      msg.style.color = "green";
-    } else {
-      msg.textContent = "Invalid email or password.";
-      msg.style.color = "red";
-    }
-  });
-}
+      // Optionally redirect to home after 800ms
+      setTimeout(()=> {
+        window.location.href = 'index.html';
+      }, 800);
+    });
+  }
+
+  /* -------------------------
+     LOGOUT BUTTON (optional)
+     If you add a button with id="logoutBtn" it will clear currentUser
+     ------------------------- */
+  const logoutBtn = document.getElementById('logoutBtn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'index.html';
+    });
+  }
+
+}); // DOMContentLoaded end

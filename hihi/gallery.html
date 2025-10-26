@@ -1,197 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery</title>
-  <link rel="stylesheet" href="gallery.css">
-  <link rel="stylesheet" href="style.css"> <!-- optional, for header/footer -->
-</head>
-<body>
-
-  <!-- Optional: site header -->
-  <header class="site-header">
-    <div class="wrap">
-      <div class="brand">
-        <img src="logo.png" alt="Logo">
-      </div>
-      <nav class="main-nav">
-        <ul>
-          <li><a href="index.html" class="nav-link">Home</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-        </ul>
-        <button class="burger">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
+<div class="gallery-page">
+  <div class="category-section">
+    <div class="section-header">
+      <h2>Animations</h2>
+      <span class="count">(12)</span>
     </div>
-  </header>
-
-  <!-- Gallery Page -->
-  <main class="gallery-page">
-
-    <!-- Animations -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>Animations</h2>
-        <span class="count">(12)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <img src="placeholder1.jpg" alt="Animation 1">
-          <h3>Animation 1</h3>
-          <div class="meta">2 mins • 2025</div>
-        </div>
-        <div class="tile">
-          <img src="placeholder2.jpg" alt="Animation 2">
-          <h3>Animation 2</h3>
-          <div class="meta">3 mins • 2025</div>
-        </div>
-        <div class="tile">
-          <img src="placeholder3.jpg" alt="Animation 3">
-          <h3>Animation 3</h3>
-          <div class="meta">1.5 mins • 2025</div>
-        </div>
-        <!-- Add more tiles -->
-      </div>
+    <div class="row">
+      <div class="tile">...</div>
+      <div class="tile">...</div>
     </div>
+  </div>
 
-    <!-- Traditional Drawings -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>Traditional Drawings</h2>
-        <span class="count">(8)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <img src="placeholder4.jpg" alt="Drawing 1">
-          <h3>Drawing 1</h3>
-          <div class="meta">Sketch • 2025</div>
-        </div>
-        <div class="tile">
-          <img src="placeholder5.jpg" alt="Drawing 2">
-          <h3>Drawing 2</h3>
-          <div class="meta">Ink • 2025</div>
-        </div>
-        <div class="tile">
-          <img src="placeholder6.jpg" alt="Drawing 3">
-          <h3>Drawing 3</h3>
-          <div class="meta">Pencil • 2025</div>
-        </div>
-        <!-- Add more tiles -->
-      </div>
+  <div class="category-section">
+    <div class="section-header">
+      <h2>Traditional Drawings</h2>
+      <span class="count">(8)</span>
     </div>
-
-    <!-- Digital Drawings -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>Digital Drawings</h2>
-        <span class="count">(10)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <img src="placeholder7.jpg" alt="Digital 1">
-          <h3>Digital 1</h3>
-          <div class="meta">Illustrator • 2025</div>
-        </div>
-        <div class="tile">
-          <img src="placeholder8.jpg" alt="Digital 2">
-          <h3>Digital 2</h3>
-          <div class="meta">Photoshop • 2025</div>
-        </div>
-        <!-- Add more tiles -->
-      </div>
+    <div class="row">
+      <div class="tile">...</div>
+      <div class="tile">...</div>
     </div>
+  </div>
 
-    <!-- Paintings -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>Paintings</h2>
-        <span class="count">(6)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <img src="placeholder9.jpg" alt="Painting 1">
-          <h3>Painting 1</h3>
-          <div class="meta">Oil • 2025</div>
-        </div>
-        <div class="tile">
-          <img src="placeholder10.jpg" alt="Painting 2">
-          <h3>Painting 2</h3>
-          <div class="meta">Acrylic • 2025</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Typography -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>Typography</h2>
-        <span class="count">(4)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <img src="placeholder11.jpg" alt="Typography 1">
-          <h3>Typography 1</h3>
-          <div class="meta">2025</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Short Film -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>Short Film</h2>
-        <span class="count">(3)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <video src="shortfilm1.mp4" controls></video>
-          <h3>Short Film 1</h3>
-          <div class="meta">3 mins • 2025</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Photography -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>Photography</h2>
-        <span class="count">(7)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <img src="photo1.jpg" alt="Photo 1">
-          <h3>Photo 1</h3>
-          <div class="meta">2025</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- 3D Modeling -->
-    <div class="category-section">
-      <div class="section-header">
-        <h2>3D Modeling</h2>
-        <span class="count">(5)</span>
-      </div>
-      <div class="row">
-        <div class="tile">
-          <img src="3d1.jpg" alt="3D 1">
-          <h3>3D Model 1</h3>
-          <div class="meta">2025</div>
-        </div>
-      </div>
-    </div>
-
-  </main>
-
-  <!-- Optional: site footer -->
-  <footer class="site-footer">
-    <p>&copy; <span id="year">2025</span> My Gallery. All rights reserved.</p>
-  </footer>
-
-</body>
-</html>
+  <!-- Repeat for other categories -->
+</div>

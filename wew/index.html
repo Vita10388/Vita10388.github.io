@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard | ArtCatalog</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="navbar">
+    <div class="nav-left">
+      <a href="index.html" class="logo">ArtCatalog</a>
+    </div>
+
+    <button id="hamburger" class="hamburger">&#9776;</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="about.html">About</a>
+      <a href="products.html">Products</a>
+      <a href="services.html">Services</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+
+    <div class="nav-right">
+      <a href="signup.html" class="btn">Sign Up</a>
+      <a href="login.html" class="btn-outline">Log In</a>
+    </div>
+  </header>
+
+  <main class="dashboard">
+    <section class="hero">
+      <h1 id="greeting">Welcome to ArtCatalog</h1>
+      <p>Discover and manage your artworks, products, and creative services.</p>
+    </section>
+
+    <section class="art-grid">
+      <div class="art-card"><img src="https://picsum.photos/300?1" alt="Artwork"><p>Forest Dream</p></div>
+      <div class="art-card"><img src="https://picsum.photos/300?2" alt="Artwork"><p>Silent River</p></div>
+      <div class="art-card"><img src="https://picsum.photos/300?3" alt="Artwork"><p>Golden Path</p></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© <span id="year"></span> ArtCatalog</p>
+  </footer>
+
+  <script src="js/script.js" defer></script>
+</body>
+</html>

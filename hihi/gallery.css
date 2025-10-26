@@ -1,138 +1,62 @@
-/* RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* 🔹 Make filter bar stay steady (sticky) below header */
+.gallery-filter {
+    position: sticky;
+    top: 70px; /* Adjust this if your header height changes */
+    background-color: #111;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 999;
+    border-bottom: 1px solid #333;
 }
 
-/* HEADER (same style.css header will still apply) */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #111;
-  color: white;
-  padding: 15px 30px;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-header .nav-links a {
-  color: white;
-  text-decoration: none;
-  margin-left: 20px;
-}
-
-header .nav-links a:hover,
-header .nav-links a.active {
-  color: #00bfff;
-}
-
-/* CATEGORY BAR */
-.category-bar {
-  position: sticky;
-  top: 60px; /* stays below header */
-  background: #f5f5f5;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px 20px;
-  border-bottom: 1px solid #ddd;
-  z-index: 999;
-}
-
-.category-links a {
-  text-decoration: none;
-  color: #333;
-  margin-right: 15px;
-  font-weight: bold;
-}
-
-.category-links a.active {
-  color: #007bff;
-}
-
-.search-box input {
-  padding: 6px 10px;
-  font-size: 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* GALLERY */
-.gallery-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  padding: 40px;
-  background: #fff;
-  min-height: 100vh;
-}
-
-/* Each artwork group */
-.gallery-item {
-  width: 100%;
-  max-width: 1000px;
-  text-align: center;
-}
-
-.gallery-item h3 {
-  font-size: 1.5rem;
-  color: #222;
-  margin-bottom: 20px;
-}
-
-/* Multiple images inside one category */
-.artwork-set {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 15px;
-}
-
-.artwork-set img {
-  width: 250px;
-  height: auto;
-  border-radius: 10px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.artwork-set img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-}
-
-/* RESPONSIVE DESIGN */
-@media (max-width: 768px) {
-  .category-bar {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-  }
-
-  .category-links {
+/* 🔹 Category links */
+.filter-links {
     display: flex;
     flex-wrap: wrap;
-    gap: 10px;
-  }
-
-  .search-box {
-    width: 100%;
-  }
-
-  .search-box input {
-    width: 100%;
-  }
-
-  .artwork-set img {
-    width: 45%;
-  }
+    gap: 15px;
 }
 
-@media (max-width: 480px) {
-  .artwork-set img {
+.filter-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.filter-links a:hover,
+.filter-links a.active {
+    color: #0ff;
+}
+
+/* 🔹 Search bar */
+.search-bar {
+    padding: 6px 10px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 180px;
+}
+
+/* 🔹 Gallery layout */
+.gallery-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    justify-items: center;
+    align-items: center;
+    padding: 40px 20px;
+    background-color: #000;
+}
+
+.gallery-item img {
     width: 100%;
-  }
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item img:hover {
+    transform: scale(1.05);
 }

@@ -63,13 +63,39 @@ a {
   transform: translateY(-2px);
 }
 
+/* Sign Up / Login Dark Green Fill Button */
 .primary-link {
-  background: #111;
-  color: #fff;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #254117;
+  background: transparent;
+  color: #254117;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  z-index: 1;
+}
+
+.primary-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #254117;
+  z-index: -1;
+  transition: width 0.4s ease;
 }
 
 .primary-link:hover {
-  background: #333;
+  color: #fff;
+}
+
+.primary-link:hover::before {
+  width: 100%;
 }
 
 /* Burger menu (for mobile) */
@@ -122,7 +148,8 @@ a {
   transition: background 0.3s, transform 0.3s;
 }
 
-.cat-btn.active, .cat-btn:hover {
+.cat-btn.active,
+.cat-btn:hover {
   background: #e0e0e0;
   transform: translateY(-2px);
 }
@@ -142,17 +169,18 @@ a {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
   cursor: pointer;
 }
 
 .tile:hover {
   transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
-.tile img, .tile video {
+.tile img,
+.tile video {
   width: 100%;
   display: block;
 }
@@ -185,14 +213,14 @@ a {
 /* Lightbox */
 .lightbox {
   position: fixed;
-  top:0;
-  left:0;
-  width:100%;
-  height:100%;
-  background: rgba(0,0,0,0.8);
-  display:none;
-  justify-content:center;
-  align-items:center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  justify-content: center;
+  align-items: center;
   z-index: 2000;
 }
 
@@ -233,39 +261,4 @@ a {
   .burger {
     display: flex;
   }
-}
-
-/* --- Dark Green Color Fill Effect for Sign Up / Login --- */
-.fx-fill {
-  position: relative;
-  display: inline-block;
-  border: 2px solid #254117;
-  background: transparent;
-  color: #254117;
-  overflow: hidden;
-  transition: color 0.4s ease;
-  padding: 8px 16px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-}
-
-.fx-fill::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #254117;
-  z-index: -1;
-  transition: width 0.4s ease;
-}
-
-.fx-fill:hover {
-  color: #fff;
-}
-
-.fx-fill:hover::before {
-  width: 100%;
 }

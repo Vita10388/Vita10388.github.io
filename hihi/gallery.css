@@ -1,5 +1,9 @@
 body {
 }
+header, nav, .navbar {
+  position: relative;
+  z-index: 1000;
+}
 
 
 .category h2 {

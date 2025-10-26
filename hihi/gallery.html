@@ -1,25 +1,560 @@
-<div class="gallery-page">
-  <div class="category-section">
-    <div class="section-header">
-      <h2>Animations</h2>
-      <span class="count">(12)</span>
-    </div>
-    <div class="row">
-      <div class="tile">...</div>
-      <div class="tile">...</div>
-    </div>
-  </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gallery – Klasik Sining</title>
+  <meta name="description" content="Gallery of Klasik Sining — Animations, Traditional Drawings, Digital Drawings, Paintings, Typography, Short Film, Photography, 3D Modeling" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="gallery.css" />
+  <script defer src="script.js"></script>
+  <script defer src="gallery.js"></script>
+</head>
 
-  <div class="category-section">
-    <div class="section-header">
-      <h2>Traditional Drawings</h2>
-      <span class="count">(8)</span>
-    </div>
-    <div class="row">
-      <div class="tile">...</div>
-      <div class="tile">...</div>
-    </div>
-  </div>
+<body>
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html" aria-label="Klasik Sining home">
+        <img src="assets/Klasik Sining!.png" alt="Klasik Sining logo" id="logo">
+        <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining text" id="logotext">
+      </a>
 
-  <!-- Repeat for other categories -->
-</div>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link primary-link">Sign up</a></li>
+        </ul>
+
+        <button id="burger" class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap gallery-page">
+    <section class="gallery-controls">
+      <div class="search-row">
+        <input id="gallery-search" type="search" placeholder="Search by category or creator (e.g. Animations / Ann)" aria-label="Search artworks by category or creator">
+      </div>
+
+      <div class="category-filter">
+        <button class="cat-btn active" data-cat="all">All</button>
+        <button class="cat-btn" data-cat="Animations">Animations</button>
+        <button class="cat-btn" data-cat="Traditional Drawings">Traditional Drawings</button>
+        <button class="cat-btn" data-cat="Digital Drawings">Digital Drawings</button>
+        <button class="cat-btn" data-cat="Paintings">Paintings</button>
+        <button class="cat-btn" data-cat="Typography">Typography</button>
+        <button class="cat-btn" data-cat="Short Film">Short Film</button>
+        <button class="cat-btn" data-cat="Photography">Photography</button>
+        <button class="cat-btn" data-cat="3D Modeling">3D Modeling</button>
+      </div>
+    </section>
+
+    <!-- Gallery sections: Each category is a section containing a horizontal row of tiles -->
+    <section id="animations" class="category-section" data-cat="Animations">
+      <div class="section-header">
+        <h2>Animations</h2>
+        <span class="count">11</span>
+      </div>
+      <div class="row" id="row-Animations">
+        <!-- Keep your animation tiles (copy of the original ones) -->
+        <article class="tile" data-category="Animations" data-creator="Ann Gail Miomie Ampong" data-title="YumsAnimations1">
+          <video muted preload="metadata" data-src="assets/YumsAnimations1.mov"></video>
+          <h3>Whispers in Motion</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Ann Gail Miomie Ampong" data-title="YumsAnimations2">
+          <video muted preload="metadata" data-src="assets/YumsAnimations2.mov"></video>
+          <h3>Echo of Light</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Ann Gail Miomie Ampong" data-title="YumsAnimations3">
+          <video muted preload="metadata" data-src="assets/YumsAnimations3.mov"></video>
+          <h3>Subtle Flow</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Ann Gail Miomie Ampong" data-title="YumsAnimations4">
+          <video muted preload="metadata" data-src="assets/YumsAnimations4.mp4"></video>
+          <h3>Moment of Stillness</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Ann Gail Miomie Ampong" data-title="YumsAnimations5">
+          <video muted preload="metadata" data-src="assets/YumsAnimations5.mp4"></video>
+          <h3>Drift</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Ann Gail Miomie Ampong" data-title="YumsAnimations6">
+          <video muted preload="metadata" data-src="assets/YumsAnimations6.mp4"></video>
+          <h3>Fleeting Frames</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Kaela Vita" data-title="KayAnimations1">
+          <video muted preload="metadata" data-src="assets/KayAnimations1.mov"></video>
+          <h3>Pulse of Light</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Kaela Vita" data-title="KayAnimations2">
+          <video muted preload="metadata" data-src="assets/KayAnimations2.mov"></video>
+          <h3>Silent Motion</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Kaela Vita" data-title="KayAnimations3">
+          <video muted preload="metadata" data-src="assets/KayAnimations3.mov"></video>
+          <h3>Veins of Color</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Kaela Vita" data-title="KayAnimations4">
+          <video muted preload="metadata" data-src="assets/KayAnimations4.mov"></video>
+          <h3>Breath Between Frames</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Animations" data-creator="Kaela Vita" data-title="KayAnimations5">
+          <video muted preload="metadata" data-src="assets/KayAnimations5.mov"></video>
+          <h3>Framed Silence</h3>
+          <p class="meta"><span class="cat">Animations</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRADITIONAL DRAWINGS -->
+    <section id="traditional-drawings" class="category-section" data-cat="Traditional Drawings">
+      <div class="section-header">
+        <h2>Traditional Drawings</h2>
+        <span class="count">10</span>
+      </div>
+      <div class="row" id="row-Traditional-Drawings">
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings1">
+          <img src="assets/YumsTraditionalDrawings1.jpg" alt="Quiet Lines">
+          <h3>Quiet Lines</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings2">
+          <img src="assets/YumsTraditionalDrawings2.jpg" alt="Contours of Calm">
+          <h3>Contours of Calm</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings3">
+          <img src="assets/YumsTraditionalDrawings3.jpg" alt="Soft Shadows">
+          <h3>Soft Shadows</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings4">
+          <img src="assets/YumsTraditionalDrawings4.jpg" alt="Grain and Flow">
+          <h3>Grain and Flow</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings5">
+          <img src="assets/YumsTraditionalDrawings5.jpg" alt="Sketch of Memory">
+          <h3>Sketch of Memory</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings6">
+          <img src="assets/YumsTraditionalDrawings6.jpg" alt="Fading Trace">
+          <h3>Fading Trace</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings7">
+          <img src="assets/YumsTraditionalDrawings7.jpg" alt="Echo in Graphite">
+          <h3>Echo in Graphite</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings8">
+          <img src="assets/YumsTraditionalDrawings8.jpg" alt="Line Reverie">
+          <h3>Line Reverie</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings9">
+          <img src="assets/YumsTraditionalDrawings9.jpg" alt="Shaded Thought">
+          <h3>Shaded Thought</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Traditional Drawings" data-creator="Kaela Vita" data-title="KayTraditionalDrawing1">
+          <img src="assets/KayTraditionalDrawing1.HEIC" alt="Light on Paper">
+          <h3>Light on Paper</h3>
+          <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- DIGITAL DRAWINGS -->
+    <section id="digital-drawings" class="category-section" data-cat="Digital Drawings">
+      <div class="section-header">
+        <h2>Digital Drawings</h2>
+        <span class="count">8</span>
+      </div>
+      <div class="row" id="row-Digital-Drawings">
+        <article class="tile" data-category="Digital Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsDigitalDrawings1">
+          <img src="assets/YumsDigitalDrawings1.jpg" alt="Color Pulse">
+          <h3>Color Pulse</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Digital Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsDigitalDrawings2">
+          <img src="assets/YumsDigitalDrawings2.jpg" alt="Digital Echo">
+          <h3>Digital Echo</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Digital Drawings" data-creator="Kaela Vita" data-title="KayDigitalDrawings1">
+          <img src="assets/KayDigitalDrawings1.PNG" alt="Pixel Dream">
+          <h3>Pixel Dream</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Digital Drawings" data-creator="Kaela Vita" data-title="KayDigitalDrawings2">
+          <img src="assets/KayDigitalDrawings2.PNG" alt="Silent Code">
+          <h3>Silent Code</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Digital Drawings" data-creator="Kaela Vita" data-title="KayDigitalDrawings3">
+          <img src="assets/KayDigitalDrawings3.PNG" alt="Shape and Breath">
+          <h3>Shape and Breath</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Digital Drawings" data-creator="Kaela Vita" data-title="KayDigitalDrawings4">
+          <img src="assets/KayDigitalDrawings4.PNG" alt="Soft Geometry">
+          <h3>Soft Geometry</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Digital Drawings" data-creator="Kaela Vita" data-title="KayDigitalDrawings5">
+          <img src="assets/KayDigitalDrawings5.PNG" alt="Digital Mirage">
+          <h3>Digital Mirage</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Digital Drawings" data-creator="Kaela Vita" data-title="KayDigitalDrawings6">
+          <img src="assets/KayDigitalDrawings6.PNG" alt="Echoed Light">
+          <h3>Echoed Light</h3>
+          <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PAINTINGS -->
+    <section id="paintings" class="category-section" data-cat="Paintings">
+      <div class="section-header">
+        <h2>Paintings</h2>
+        <span class="count">1</span>
+      </div>
+      <div class="row" id="row-Paintings">
+        <article class="tile" data-category="Paintings" data-creator="Kaela Vita" data-title="KayPaintings1">
+          <img src="assets/KayPaintings1.HEIC" alt="Still Horizon">
+          <h3>Still Horizon</h3>
+          <p class="meta"><span class="cat">Paintings</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- TYPOGRAPHY -->
+    <section id="typography" class="category-section" data-cat="Typography">
+      <div class="section-header">
+        <h2>Typography</h2>
+        <span class="count">9</span>
+      </div>
+      <div class="row" id="row-Typography">
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography1">
+          <img src="assets/YumsTypography1.jpg" alt="Letter Flow">
+          <h3>Letter Flow</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography2">
+          <img src="assets/YumsTypography2.jpg" alt="Weight of Words">
+          <h3>Weight of Words</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography3">
+          <img src="assets/YumsTypography3.jpg" alt="Voice in Form">
+          <h3>Voice in Form</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography4">
+          <img src="assets/YumsTypography4.jpg" alt="Rhythm of Type">
+          <h3>Rhythm of Type</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography5">
+          <img src="assets/YumsTypography5.jpg" alt="Muted Contrast">
+          <h3>Muted Contrast</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography6">
+          <img src="assets/YumsTypography6.jpg" alt="Sound of Silence">
+          <h3>Sound of Silence</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography7">
+          <img src="assets/YumsTypography7.png" alt="Form Whisper">
+          <h3>Form Whisper</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography8">
+          <img src="assets/YumsTypography8.png" alt="Echoed Letter">
+          <h3>Echoed Letter</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Typography" data-creator="Kaela Vita" data-title="KayTypography1">
+          <img src="assets/KayTypography1.PNG" alt="Type Bloom">
+          <h3>Type Bloom</h3>
+          <p class="meta"><span class="cat">Typography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- SHORT FILM -->
+    <section id="short-film" class="category-section" data-cat="Short Film">
+      <div class="section-header">
+        <h2>Short Film</h2>
+        <span class="count">4</span>
+      </div>
+      <div class="row" id="row-Short-Film">
+        <article class="tile" data-category="Short Film" data-creator="Ann Gail Miomie Ampong" data-title="YumsShortFilm1">
+          <video muted preload="metadata" data-src="assets/YumsShortFilm1.mp4"></video>
+          <h3>Through the Frame</h3>
+          <p class="meta"><span class="cat">Short Film</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Short Film" data-creator="Ann Gail Miomie Ampong" data-title="YumsShortFilm2">
+          <video muted preload="metadata" data-src="assets/YumsShortFilm2.mp4"></video>
+          <h3>Muted Story</h3>
+          <p class="meta"><span class="cat">Short Film</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Short Film" data-creator="Ann Gail Miomie Ampong" data-title="YumsShortFilm3">
+          <video muted preload="metadata" data-src="assets/YumsShortFilm3.mp4"></video>
+          <h3>Light Between</h3>
+          <p class="meta"><span class="cat">Short Film</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Short Film" data-creator="Kaela Vita" data-title="KayShortFilm">
+          <video muted preload="metadata" data-src="assets/KayShortFilm.mov"></video>
+          <h3>Drift of Time</h3>
+          <p class="meta"><span class="cat">Short Film</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="category-section" data-cat="Photography">
+      <div class="section-header">
+        <h2>Photography</h2>
+        <span class="count">23</span>
+      </div>
+      <div class="row" id="row-Photography">
+        <!-- many photography tiles (kept original filenames) -->
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography1">
+          <img src="assets/YumsPhotography1.jpg" alt="Soft Focus">
+          <h3>Soft Focus</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography2">
+          <img src="assets/YumsPhotography2.jpg" alt="Muted Sky">
+          <h3>Muted Sky</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography3">
+          <img src="assets/YumsPhotography3.jpg" alt="Still Light">
+          <h3>Still Light</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography4">
+          <img src="assets/YumsPhotography4.jpg" alt="Gentle Grain">
+          <h3>Gentle Grain</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography5">
+          <img src="assets/YumsPhotography5.jpg" alt="Silent Streets">
+          <h3>Silent Streets</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography6">
+          <img src="assets/YumsPhotography6.jpg" alt="Edge of Frame">
+          <h3>Edge of Frame</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography7">
+          <img src="assets/YumsPhotography7.jpg" alt="Hidden Glow">
+          <h3>Hidden Glow</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography8">
+          <img src="assets/YumsPhotography8.jpg" alt="Soft Perspective">
+          <h3>Soft Perspective</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography9">
+          <img src="assets/YumsPhotography9.jpg" alt="Quiet Gaze">
+          <h3>Quiet Gaze</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography10">
+          <img src="assets/YumsPhotography10.jpg" alt="Dim Horizon">
+          <h3>Dim Horizon</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography11">
+          <img src="assets/YumsPhotography11.jpg" alt="Framed Silence">
+          <h3>Framed Silence</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography12">
+          <img src="assets/YumsPhotography12.jpg" alt="Morning Drift">
+          <h3>Morning Drift</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography1">
+          <img src="assets/KayPhotography1.HEIC" alt="Light Vein">
+          <h3>Light Vein</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography2">
+          <img src="assets/KayPhotography2.JPG" alt="Muted Color">
+          <h3>Muted Color</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography3">
+          <img src="assets/KayPhotography3.HEIC" alt="Depth of Calm">
+          <h3>Depth of Calm</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography4">
+          <img src="assets/KayPhotography4.JPG" alt="Soft Edge">
+          <h3>Soft Edge</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography5">
+          <img src="assets/KayPhotography5.JPG" alt="Silver Light">
+          <h3>Silver Light</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography6">
+          <img src="assets/KayPhotography6.HEIC" alt="Faint Glow">
+          <h3>Faint Glow</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography7">
+          <img src="assets/KayPhotography7.JPG" alt="Gentle Distance">
+          <h3>Gentle Distance</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography8">
+          <img src="assets/KayPhotography8.HEIC" alt="Whisper Frame">
+          <h3>Whisper Frame</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography9">
+          <img src="assets/KayPhotography9.PNG" alt="Frozen Breath">
+          <h3>Frozen Breath</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography10">
+          <img src="assets/KayPhotography10.PNG" alt="Muted Echo">
+          <h3>Muted Echo</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+
+        <article class="tile" data-category="Photography" data-creator="Kaela Vita" data-title="KayPhotography11">
+          <img src="assets/KayPhotography11.HEIC" alt="Soft Horizon">
+          <h3>Soft Horizon</h3>
+          <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
+        </article>
+      </div>
+    </section>
+
+    <!-- 3D MODELING -->
+    <section id="3d-modeling" class="category-section" data-cat="3D Modeling">
+      <div class="section-header">
+        <h2>3D Modeling</h2>
+        <span class="count">4</span>
+      </div>
+      <div class="row" id="row-3D-Modeling">
+        <article class="tile" data-category="3D Modeling" data-creator="Ann Gail Miomie Ampong" data-title="Yums3DModeling1">
+          <img src="assets/Yums3DModeling1.jpg" alt="Form in Space">
+          <h3>Form in Space</h3>
+          <p class="meta"><span class="cat">3D Modeling</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="3D Modeling" data-creator="Ann Gail Miomie Ampong" data-title="Yums3DModeling2">
+          <img src="assets/Yums3DModeling2.jpg" alt="Silent Structure">
+          <h3>Silent Structure</h3>
+          <p class="meta"><span class="cat">3D Modeling</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="3D Modeling" data-creator="Ann Gail Miomie Ampong" data-title="Yums3DModeling3">
+          <img src="assets/Yums3DModeling3.jpg" alt="Shape of Thought">
+          <h3>Shape of Thought</h3>
+          <p class="meta"><span class="cat">3D Modeling</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+
+        <article class="tile" data-category="3D Modeling" data-creator="Ann Gail Miomie Ampong" data-title="Yums3DModeling4">
+          <img src="assets/Yums3DModeling4.jpg" alt="Dim Geometry">
+          <h3>Dim Geometry</h3>
+          <p class="meta"><span class="cat">3D Modeling</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+        </article>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Expanded inline panel will be injected by gallery.js -->
+</body>
+</html>

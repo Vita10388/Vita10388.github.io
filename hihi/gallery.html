@@ -6,13 +6,10 @@
   <title>Gallery – Klasik Sining</title>
   <meta name="description" content="Gallery of Klasik Sining — Animations, Traditional Drawings, Digital Drawings, Paintings, Typography, Short Film, Photography, 3D Modeling" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
- 
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="gallery.css" />
   <script defer src="script.js"></script>
-
-<script defer src="gallery.js"></script>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="gallery.css">
-
+  <script defer src="gallery.js"></script>
 </head>
 
 <body>
@@ -40,7 +37,7 @@
   <main class="wrap gallery-page">
     <section class="gallery-controls">
       <div class="search-row">
-        <input id="gallery-search" type="search" placeholder="Search by category (e.g. Animations) or creator (Ann / Kaela)" aria-label="Search artworks by category or creator">
+        <input id="gallery-search" type="search" placeholder="Search by category or creator (e.g. Animations / Ann)" aria-label="Search artworks by category or creator">
       </div>
 
       <div class="category-filter">
@@ -56,12 +53,16 @@
       </div>
     </section>
 
-    <section class="gallery-grid-wrap">
-      <div id="art-grid" class="grid columns-4">
-        <!-- Each card: data-category & data-creator attributes used for filtering -->
-        <!-- ANIMATIONS -->
+    <!-- Gallery sections: Each category is a section containing a horizontal row of tiles -->
+    <section id="animations" class="category-section" data-cat="Animations">
+      <div class="section-header">
+        <h2>Animations</h2>
+        <span class="count">11</span>
+      </div>
+      <div class="row" id="row-Animations">
+        <!-- Keep your animation tiles (copy of the original ones) -->
         <article class="tile" data-category="Animations" data-creator="Ann Gail Miomie Ampong" data-title="YumsAnimations1">
-          <video muted preload="metadata" poster="" data-src="assets/YumsAnimations1.mov"></video>
+          <video muted preload="metadata" data-src="assets/YumsAnimations1.mov"></video>
           <h3>Whispers in Motion</h3>
           <p class="meta"><span class="cat">Animations</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
         </article>
@@ -125,8 +126,16 @@
           <h3>Framed Silence</h3>
           <p class="meta"><span class="cat">Animations</span> • <span class="creator">Kaela Vita</span></p>
         </article>
+      </div>
+    </section>
 
-        <!-- TRADITIONAL DRAWINGS -->
+    <!-- TRADITIONAL DRAWINGS -->
+    <section id="traditional-drawings" class="category-section" data-cat="Traditional Drawings">
+      <div class="section-header">
+        <h2>Traditional Drawings</h2>
+        <span class="count">10</span>
+      </div>
+      <div class="row" id="row-Traditional-Drawings">
         <article class="tile" data-category="Traditional Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsTraditionalDrawings1">
           <img src="assets/YumsTraditionalDrawings1.jpg" alt="Quiet Lines">
           <h3>Quiet Lines</h3>
@@ -186,8 +195,16 @@
           <h3>Light on Paper</h3>
           <p class="meta"><span class="cat">Traditional Drawings</span> • <span class="creator">Kaela Vita</span></p>
         </article>
+      </div>
+    </section>
 
-        <!-- DIGITAL DRAWINGS -->
+    <!-- DIGITAL DRAWINGS -->
+    <section id="digital-drawings" class="category-section" data-cat="Digital Drawings">
+      <div class="section-header">
+        <h2>Digital Drawings</h2>
+        <span class="count">8</span>
+      </div>
+      <div class="row" id="row-Digital-Drawings">
         <article class="tile" data-category="Digital Drawings" data-creator="Ann Gail Miomie Ampong" data-title="YumsDigitalDrawings1">
           <img src="assets/YumsDigitalDrawings1.jpg" alt="Color Pulse">
           <h3>Color Pulse</h3>
@@ -235,15 +252,31 @@
           <h3>Echoed Light</h3>
           <p class="meta"><span class="cat">Digital Drawings</span> • <span class="creator">Kaela Vita</span></p>
         </article>
+      </div>
+    </section>
 
-        <!-- PAINTINGS -->
+    <!-- PAINTINGS -->
+    <section id="paintings" class="category-section" data-cat="Paintings">
+      <div class="section-header">
+        <h2>Paintings</h2>
+        <span class="count">1</span>
+      </div>
+      <div class="row" id="row-Paintings">
         <article class="tile" data-category="Paintings" data-creator="Kaela Vita" data-title="KayPaintings1">
           <img src="assets/KayPaintings1.HEIC" alt="Still Horizon">
           <h3>Still Horizon</h3>
           <p class="meta"><span class="cat">Paintings</span> • <span class="creator">Kaela Vita</span></p>
         </article>
+      </div>
+    </section>
 
-        <!-- TYPOGRAPHY -->
+    <!-- TYPOGRAPHY -->
+    <section id="typography" class="category-section" data-cat="Typography">
+      <div class="section-header">
+        <h2>Typography</h2>
+        <span class="count">9</span>
+      </div>
+      <div class="row" id="row-Typography">
         <article class="tile" data-category="Typography" data-creator="Ann Gail Miomie Ampong" data-title="YumsTypography1">
           <img src="assets/YumsTypography1.jpg" alt="Letter Flow">
           <h3>Letter Flow</h3>
@@ -297,8 +330,16 @@
           <h3>Type Bloom</h3>
           <p class="meta"><span class="cat">Typography</span> • <span class="creator">Kaela Vita</span></p>
         </article>
+      </div>
+    </section>
 
-        <!-- SHORT FILM -->
+    <!-- SHORT FILM -->
+    <section id="short-film" class="category-section" data-cat="Short Film">
+      <div class="section-header">
+        <h2>Short Film</h2>
+        <span class="count">4</span>
+      </div>
+      <div class="row" id="row-Short-Film">
         <article class="tile" data-category="Short Film" data-creator="Ann Gail Miomie Ampong" data-title="YumsShortFilm1">
           <video muted preload="metadata" data-src="assets/YumsShortFilm1.mp4"></video>
           <h3>Through the Frame</h3>
@@ -322,8 +363,17 @@
           <h3>Drift of Time</h3>
           <p class="meta"><span class="cat">Short Film</span> • <span class="creator">Kaela Vita</span></p>
         </article>
+      </div>
+    </section>
 
-        <!-- PHOTOGRAPHY -->
+    <!-- PHOTOGRAPHY -->
+    <section id="photography" class="category-section" data-cat="Photography">
+      <div class="section-header">
+        <h2>Photography</h2>
+        <span class="count">23</span>
+      </div>
+      <div class="row" id="row-Photography">
+        <!-- many photography tiles (kept original filenames) -->
         <article class="tile" data-category="Photography" data-creator="Ann Gail Miomie Ampong" data-title="YumsPhotography1">
           <img src="assets/YumsPhotography1.jpg" alt="Soft Focus">
           <h3>Soft Focus</h3>
@@ -461,8 +511,16 @@
           <h3>Soft Horizon</h3>
           <p class="meta"><span class="cat">Photography</span> • <span class="creator">Kaela Vita</span></p>
         </article>
+      </div>
+    </section>
 
-        <!-- 3D MODELING -->
+    <!-- 3D MODELING -->
+    <section id="3d-modeling" class="category-section" data-cat="3D Modeling">
+      <div class="section-header">
+        <h2>3D Modeling</h2>
+        <span class="count">4</span>
+      </div>
+      <div class="row" id="row-3D-Modeling">
         <article class="tile" data-category="3D Modeling" data-creator="Ann Gail Miomie Ampong" data-title="Yums3DModeling1">
           <img src="assets/Yums3DModeling1.jpg" alt="Form in Space">
           <h3>Form in Space</h3>
@@ -484,14 +542,19 @@
         <article class="tile" data-category="3D Modeling" data-creator="Ann Gail Miomie Ampong" data-title="Yums3DModeling4">
           <img src="assets/Yums3DModeling4.jpg" alt="Dim Geometry">
           <h3>Dim Geometry</h3>
-                    <p class="meta"><span class="cat">3D Modeling</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
+          <p class="meta"><span class="cat">3D Modeling</span> • <span class="creator">Ann Gail Miomie Ampong</span></p>
         </article>
       </div>
     </section>
+
   </main>
 
   <footer class="site-footer">
-    <p>&copy; 2025 Klasik Sining. All rights reserved.</p>
+    <div class="wrap">
+      <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
+    </div>
   </footer>
+
+  <!-- Expanded inline panel will be injected by gallery.js -->
 </body>
 </html>

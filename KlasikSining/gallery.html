@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KlasikSining — Gallery</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script defer src="js/script.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <img src="img/logo.png" alt="KlasikSining logo" class="brand-logo">
+        <a href="index.html" class="brand-name">KlasikSining</a>
+      </div>
+
+      <nav id="main-nav" class="nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="gallery.html" class="nav-link active">Gallery</a>
+        <a href="login.html" class="nav-link">Login</a>
+        <a href="signup.html" class="nav-link btn-signup">Sign up</a>
+      </nav>
+
+      <button id="hamburger" class="hamburger" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+  <!-- Category bar (sticky under header) -->
+  <div class="category-bar" id="categoryBar">
+    <div class="category-inner">
+      <a href="#" class="cat-link active" data-cat="all">All</a>
+      <a href="#" class="cat-link" data-cat="3d">3D Modeling</a>
+      <a href="#" class="cat-link" data-cat="animations">Animations</a>
+      <a href="#" class="cat-link" data-cat="digital">Digital Drawing</a>
+      <a href="#" class="cat-link" data-cat="paintings">Paintings</a>
+      <a href="#" class="cat-link" data-cat="photo">Photography</a>
+      <a href="#" class="cat-link" data-cat="films">Short Films</a>
+      <a href="#" class="cat-link" data-cat="traditional">Traditional Drawing</a>
+      <a href="#" class="cat-link" data-cat="type">Typography</a>
+    </div>
+  </div>
+
+  <main class="gallery-main">
+    <div class="gallery-grid" id="galleryGrid">
+      <!-- Example cards. Replace src with images in your img/ folder. Add data-cat

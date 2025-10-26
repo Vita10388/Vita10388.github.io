@@ -1,0 +1,21 @@
+a {
+  color: #388e3c; /* light green */
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: #1b5e20; /* dark green */
+  transform: scale(1.05);
+}
+a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #1b5e20;
+  transition: width 0.3s;
+}
+a:hover::after {
+  width: 100%;
+}

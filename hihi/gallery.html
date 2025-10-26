@@ -1,79 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gallery</title>
-
-  <!-- Main site styles -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Gallery-specific styles -->
-  <link rel="stylesheet" href="gallery.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery | Vita’s Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
-  <!-- HEADER -->
-  <header>
-    <div class="logo">My Portfolio</div>
-    <nav class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="about.html">About</a>
-      <a href="gallery.html" class="active">Gallery</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
+    <!-- 🔹 Keep your original header (don’t delete your logo or menu) -->
+    <header>
+        <div class="logo">Vita’s Portfolio</div>
+        <nav class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="gallery.html" class="active">Gallery</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </header>
 
-  <!-- CATEGORY BAR -->
-  <div class="category-bar">
-    <div class="category-links">
-      <a href="#" class="active">All</a>
-      <a href="#">Animations</a>
-      <a href="#">Traditional Drawings</a>
-      <a href="#">Digital Drawings</a>
-      <a href="#">Paintings</a>
-      <a href="#">Typography</a>
-      <a href="#">Short Film</a>
-      <a href="#">Photography</a>
-      <a href="#">3D Modeling</a>
-    </div>
-    <div class="search-box">
-      <input type="text" placeholder="Search..." />
-    </div>
-  </div>
-
-  <!-- GALLERY SECTION -->
-  <main class="gallery-container">
-
-    <!-- Example Category 1 -->
-    <div class="gallery-item">
-      <h3>Digital Drawings</h3>
-      <div class="artwork-set">
-        <img src="images/digital1.jpg" alt="Digital Artwork 1">
-        <img src="images/digital2.jpg" alt="Digital Artwork 2">
-        <img src="images/digital3.jpg" alt="Digital Artwork 3">
-      </div>
+    <!-- 🔹 Gallery Filter Bar -->
+    <div class="gallery-filter">
+        <div class="filter-links">
+            <a href="#" class="active">All</a>
+            <a href="#">Animations</a>
+            <a href="#">Traditional Drawings</a>
+            <a href="#">Digital Drawings</a>
+            <a href="#">Paintings</a>
+            <a href="#">Typography</a>
+            <a href="#">Short Film</a>
+            <a href="#">Photography</a>
+            <a href="#">3D Modeling</a>
+        </div>
+        <input type="text" placeholder="Search artworks..." class="search-bar">
     </div>
 
-    <!-- Example Category 2 -->
-    <div class="gallery-item">
-      <h3>Photography</h3>
-      <div class="artwork-set">
-        <img src="images/photo1.jpg" alt="Photo 1">
-        <img src="images/photo2.jpg" alt="Photo 2">
-        <img src="images/photo3.jpg" alt="Photo 3">
-      </div>
-    </div>
+    <!-- 🔹 Gallery Section -->
+    <main class="gallery-container">
+        <div class="gallery-item"><img src="images/art1.jpg" alt="Artwork 1"></div>
+        <div class="gallery-item"><img src="images/art2.jpg" alt="Artwork 2"></div>
+        <div class="gallery-item"><img src="images/art3.jpg" alt="Artwork 3"></div>
+        <div class="gallery-item"><img src="images/art4.jpg" alt="Artwork 4"></div>
+        <div class="gallery-item"><img src="images/art5.jpg" alt="Artwork 5"></div>
+        <div class="gallery-item"><img src="images/art6.jpg" alt="Artwork 6"></div>
+    </main>
 
-    <!-- Example Category 3 -->
-    <div class="gallery-item">
-      <h3>Paintings</h3>
-      <div class="artwork-set">
-        <img src="images/painting1.jpg" alt="Painting 1">
-        <img src="images/painting2.jpg" alt="Painting 2">
-        <img src="images/painting3.jpg" alt="Painting 3">
-      </div>
-    </div>
-
-  </main>
+    <footer>
+        <p>&copy; 2025 Vita’s Portfolio</p>
+    </footer>
 </body>
 </html>

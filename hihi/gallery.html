@@ -1,52 +1,108 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery | Vita’s Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="gallery.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gallery | Vita’s Portfolio</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
-    <!-- 🔹 Keep your original header (don’t delete your logo or menu) -->
-    <header>
-        <div class="logo">Vita’s Portfolio</div>
-        <nav class="nav-links">
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="gallery.html" class="active">Gallery</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-    </header>
+  <!-- 🔹 Your original header (same as other pages) -->
+  <header>
+    <div class="logo">Vita’s Portfolio</div>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="gallery.html" class="active">Gallery</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
-    <!-- 🔹 Gallery Filter Bar -->
-    <div class="gallery-filter">
-        <div class="filter-links">
-            <a href="#" class="active">All</a>
-            <a href="#">Animations</a>
-            <a href="#">Traditional Drawings</a>
-            <a href="#">Digital Drawings</a>
-            <a href="#">Paintings</a>
-            <a href="#">Typography</a>
-            <a href="#">Short Film</a>
-            <a href="#">Photography</a>
-            <a href="#">3D Modeling</a>
-        </div>
-        <input type="text" placeholder="Search artworks..." class="search-bar">
+  <!-- 🔹 Filter bar under the header -->
+  <div class="gallery-filter">
+    <div class="filter-links">
+      <a href="#" class="filter-btn active" data-category="all">All</a>
+      <a href="#" class="filter-btn" data-category="animations">Animations</a>
+      <a href="#" class="filter-btn" data-category="traditional">Traditional Drawings</a>
+      <a href="#" class="filter-btn" data-category="digital">Digital Drawings</a>
+      <a href="#" class="filter-btn" data-category="paintings">Paintings</a>
+      <a href="#" class="filter-btn" data-category="typography">Typography</a>
+      <a href="#" class="filter-btn" data-category="shortfilm">Short Film</a>
+      <a href="#" class="filter-btn" data-category="photography">Photography</a>
+      <a href="#" class="filter-btn" data-category="modeling">3D Modeling</a>
     </div>
+    <input type="text" placeholder="Search artworks..." class="search-bar" id="searchInput">
+  </div>
 
-    <!-- 🔹 Gallery Section -->
-    <main class="gallery-container">
-        <div class="gallery-item"><img src="images/art1.jpg" alt="Artwork 1"></div>
-        <div class="gallery-item"><img src="images/art2.jpg" alt="Artwork 2"></div>
-        <div class="gallery-item"><img src="images/art3.jpg" alt="Artwork 3"></div>
-        <div class="gallery-item"><img src="images/art4.jpg" alt="Artwork 4"></div>
-        <div class="gallery-item"><img src="images/art5.jpg" alt="Artwork 5"></div>
-        <div class="gallery-item"><img src="images/art6.jpg" alt="Artwork 6"></div>
-    </main>
+  <!-- 🔹 Gallery images -->
+  <main class="gallery-container" id="gallery">
+    <!-- Example artworks with category tags -->
+    <div class="gallery-item" data-category="animations">
+      <img src="images/animation1.jpg" alt="Animation 1">
+    </div>
+    <div class="gallery-item" data-category="animations">
+      <img src="images/animation2.jpg" alt="Animation 2">
+    </div>
+    <div class="gallery-item" data-category="traditional">
+      <img src="images/traditional1.jpg" alt="Traditional Drawing 1">
+    </div>
+    <div class="gallery-item" data-category="digital">
+      <img src="images/digital1.jpg" alt="Digital Drawing 1">
+    </div>
+    <div class="gallery-item" data-category="paintings">
+      <img src="images/painting1.jpg" alt="Painting 1">
+    </div>
+    <div class="gallery-item" data-category="typography">
+      <img src="images/typography1.jpg" alt="Typography 1">
+    </div>
+    <div class="gallery-item" data-category="shortfilm">
+      <img src="images/shortfilm1.jpg" alt="Short Film">
+    </div>
+    <div class="gallery-item" data-category="photography">
+      <img src="images/photo1.jpg" alt="Photography 1">
+    </div>
+    <div class="gallery-item" data-category="modeling">
+      <img src="images/model1.jpg" alt="3D Model 1">
+    </div>
+  </main>
 
-    <footer>
-        <p>&copy; 2025 Vita’s Portfolio</p>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Vita’s Portfolio</p>
+  </footer>
+
+  <!-- 🔹 JavaScript for filtering -->
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const galleryItems = document.querySelectorAll('.gallery-item');
+    const searchInput = document.getElementById('searchInput');
+
+    // Filter by category
+    filterButtons.forEach(btn => {
+      btn.addEventListener('click', e => {
+        e.preventDefault();
+        document.querySelector('.filter-btn.active').classList.remove('active');
+        btn.classList.add('active');
+
+        const category = btn.getAttribute('data-category');
+        galleryItems.forEach(item => {
+          if (category === 'all' || item.getAttribute('data-category') === category) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Filter by search input
+    searchInput.addEventListener('input', () => {
+      const searchValue = searchInput.value.toLowerCase();
+      galleryItems.forEach(item => {
+        const altText = item.querySelector('img').alt.toLowerCase();
+        item.style.display = altText.includes(searchValue) ? 'block' : 'none';
+      });
+    });
+  </script>
 </body>
 </html>

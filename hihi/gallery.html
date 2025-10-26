@@ -8,18 +8,17 @@
   <link rel="stylesheet" href="gallery.css">
 </head>
 <body>
-  <!-- 🔹 Your original header (same as other pages) -->
+  <!-- 🔹 KEEP your original header exactly -->
   <header>
     <div class="logo">Vita’s Portfolio</div>
     <nav class="nav-links">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="gallery.html" class="active">Gallery</a>
-      <a href="contact.html">Contact</a>
     </nav>
   </header>
 
-  <!-- 🔹 Filter bar under the header -->
+  <!-- 🔹 Filter Bar -->
   <div class="gallery-filter">
     <div class="filter-links">
       <a href="#" class="filter-btn active" data-category="all">All</a>
@@ -35,46 +34,52 @@
     <input type="text" placeholder="Search artworks..." class="search-bar" id="searchInput">
   </div>
 
-  <!-- 🔹 Gallery images -->
-  <main class="gallery-container" id="gallery">
-    <!-- Example artworks with category tags -->
-    <div class="gallery-item" data-category="animations">
-      <img src="images/animation1.jpg" alt="Animation 1">
-    </div>
-    <div class="gallery-item" data-category="animations">
-      <img src="images/animation2.jpg" alt="Animation 2">
-    </div>
-    <div class="gallery-item" data-category="traditional">
-      <img src="images/traditional1.jpg" alt="Traditional Drawing 1">
-    </div>
-    <div class="gallery-item" data-category="digital">
-      <img src="images/digital1.jpg" alt="Digital Drawing 1">
-    </div>
-    <div class="gallery-item" data-category="paintings">
-      <img src="images/painting1.jpg" alt="Painting 1">
-    </div>
-    <div class="gallery-item" data-category="typography">
-      <img src="images/typography1.jpg" alt="Typography 1">
-    </div>
-    <div class="gallery-item" data-category="shortfilm">
-      <img src="images/shortfilm1.jpg" alt="Short Film">
-    </div>
-    <div class="gallery-item" data-category="photography">
-      <img src="images/photo1.jpg" alt="Photography 1">
-    </div>
-    <div class="gallery-item" data-category="modeling">
-      <img src="images/model1.jpg" alt="3D Model 1">
-    </div>
+  <!-- 🔹 Gallery Container (grouped by category rows) -->
+  <main class="gallery-section" id="gallery">
+
+    <!-- 3D MODELING -->
+    <section class="gallery-row" data-category="modeling">
+      <h2>3D Modeling</h2>
+      <div class="gallery-scroll">
+        <div class="gallery-item"><img src="images/model1.jpg" alt="3D Model 1"></div>
+        <div class="gallery-item"><img src="images/model2.jpg" alt="3D Model 2"></div>
+        <div class="gallery-item"><img src="images/model3.jpg" alt="3D Model 3"></div>
+      </div>
+      <button class="view-more">› View More</button>
+    </section>
+
+    <!-- ANIMATIONS -->
+    <section class="gallery-row" data-category="animations">
+      <h2>Animations</h2>
+      <div class="gallery-scroll">
+        <div class="gallery-item"><img src="images/animation1.jpg" alt="Animation 1"></div>
+        <div class="gallery-item"><img src="images/animation2.jpg" alt="Animation 2"></div>
+        <div class="gallery-item"><img src="images/animation3.jpg" alt="Animation 3"></div>
+      </div>
+      <button class="view-more">› View More</button>
+    </section>
+
+    <!-- DIGITAL DRAWINGS -->
+    <section class="gallery-row" data-category="digital">
+      <h2>Digital Drawings</h2>
+      <div class="gallery-scroll">
+        <div class="gallery-item"><img src="images/digital1.jpg" alt="Digital Drawing 1"></div>
+        <div class="gallery-item"><img src="images/digital2.jpg" alt="Digital Drawing 2"></div>
+      </div>
+      <button class="view-more">› View More</button>
+    </section>
+
+    <!-- Add more rows for other categories -->
   </main>
 
   <footer>
     <p>&copy; 2025 Vita’s Portfolio</p>
   </footer>
 
-  <!-- 🔹 JavaScript for filtering -->
+  <!-- 🔹 JS for Filtering and "View More" -->
   <script>
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const galleryItems = document.querySelectorAll('.gallery-item');
+    const galleryRows = document.querySelectorAll('.gallery-row');
     const searchInput = document.getElementById('searchInput');
 
     // Filter by category
@@ -85,22 +90,33 @@
         btn.classList.add('active');
 
         const category = btn.getAttribute('data-category');
-        galleryItems.forEach(item => {
-          if (category === 'all' || item.getAttribute('data-category') === category) {
-            item.style.display = 'block';
+        galleryRows.forEach(row => {
+          if (category === 'all' || row.getAttribute('data-category') === category) {
+            row.style.display = 'block';
           } else {
-            item.style.display = 'none';
+            row.style.display = 'none';
           }
         });
       });
     });
 
-    // Filter by search input
+    // Search artworks
     searchInput.addEventListener('input', () => {
       const searchValue = searchInput.value.toLowerCase();
-      galleryItems.forEach(item => {
-        const altText = item.querySelector('img').alt.toLowerCase();
-        item.style.display = altText.includes(searchValue) ? 'block' : 'none';
+      galleryRows.forEach(row => {
+        const matches = [...row.querySelectorAll('img')].some(img =>
+          img.alt.toLowerCase().includes(searchValue)
+        );
+        row.style.display = matches ? 'block' : 'none';
+      });
+    });
+
+    // View more button (scroll right)
+    const viewMoreButtons = document.querySelectorAll('.view-more');
+    viewMoreButtons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        const scrollDiv = btn.previousElementSibling;
+        scrollDiv.scrollBy({ left: 300, behavior: 'smooth' });
       });
     });
   </script>

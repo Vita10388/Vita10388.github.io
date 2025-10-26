@@ -1,50 +1,143 @@
-body {
-}
-header, nav, .navbar {
-  position: relative;
-  z-index: 1000;
-}
+/* ---------- gallery.css (drop into project) ---------- */
+/* base */
+:root{
+  --bg: #ffffff;
+  --text: #111;
+  --muted: #666;
+  --card: #fff;
+  --radius: 12px;
+  --gap: 1.25rem;
 
-
-.category h2 {
-text-transform: uppercase;
-letter-spacing: 1px;
-margin-bottom: 1rem;
-}
-
-
-.category[data-color="red"] h2 { color: #ff4d4d; }
-.category[data-color="blue"] h2 { color: #4d9eff; }
-.category[data-color="purple"] h2 { color: #a84dff; }
-.category[data-color="gold"] h2 { color: #d4af37; }
-.category[data-color="green"] h2 { color: #38b000; }
-.category[data-color="orange"] h2 { color: #ff8c00; }
-.category[data-color="gray"] h2 { color: #707070; }
-.category[data-color="teal"] h2 { color: #00bfa6; }
-
-
-.accordion {
-display: flex;
-flex-wrap: wrap;
-gap: 1rem;
+  /* category accents */
+  --c-animations: #ff6b6b;
+  --c-traditional: #3b82f6;
+  --c-digital: #7c3aed;
+  --c-paintings: #d69e2e;
+  --c-typography: #10b981;
+  --c-shortfilm: #f59e0b;
+  --c-photography: #6b7280;
+  --c-3d: #06b6d4;
 }
 
-
-.accordion img, .accordion video {
-width: 180px;
-height: 120px;
-object-fit: cover;
-border-radius: 10px;
-transition: all 0.4s ease;
-cursor: pointer;
-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+/* Reset / typography */
+*{box-sizing:border-box}
+body{
+  font-family: "Inter", system-ui, -apple-system, 'Segoe UI', Roboto, "Helvetica Neue", Arial;
+  background:var(--bg);
+  color:var(--text);
+  margin:0;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
+/* header uses your site's markup; keep it visible */
+.site-header{background:#fff;border-bottom:1px solid #e9e9e9;position:sticky;top:0;z-index:1200}
+.wrap{width:90%;max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 0.5rem}
+.brand img{height:50px;display:inline-block;vertical-align:middle}
+.main-nav .nav-list{list-style:none;display:flex;gap:1rem;align-items:center}
+.nav-link{color:var(--text);padding:.45rem .8rem;border-radius:6px;transition:background .18s, color .18s}
+.nav-link:hover{background:#f6f6f6}
+.primary-link{border:2px solid #254117;color:#254117;padding:.45rem .75rem;border-radius:6px}
 
-.accordion img.active, .accordion video.active {
-width: 360px;
-height: 240px;
-z-index: 2;
-transform: scale(1.05);
-box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+/* page layout */
+.gallery-page{padding:1.5rem 0 3rem}
+.gallery-controls{padding:1.25rem 0 0}
+.search-row{display:flex;justify-content:center;margin-bottom:.9rem}
+#gallery-search{width:60%;max-width:520px;padding:.6rem 1rem;border-radius:8px;border:1px solid #e3e3e3}
+
+/* category filter bar (keeps original buttons look) */
+.category-filter{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;margin-bottom:1.25rem}
+.cat-btn{padding:.5rem .9rem;border-radius:8px;border:1px solid #e9e9e9;background:#fff;cursor:pointer}
+.cat-btn.active{box-shadow:0 6px 18px rgba(0,0,0,0.04)}
+
+/* grid wrapper */
+.gallery-grid-wrap{width:100%}
+.grid{
+  display:grid;
+  grid-template-columns: repeat(4, 1fr); /* desktop 4 columns */
+  gap:var(--gap);
+  align-items:start;
+  width:90%;
+  max-width:1200px;
+  margin:0 auto 2.5rem;
+  padding-bottom:0.75rem;
 }
+
+/* responsive */
+@media (max-width:1100px){ .grid{grid-template-columns:repeat(3,1fr)} }
+@media (max-width:760px){ .grid{grid-template-columns:repeat(2,1fr)} }
+@media (max-width:480px){ .grid{grid-template-columns:repeat(1,1fr)} }
+
+/* tile (card) */
+.tile{
+  background:var(--card);
+  border-radius:12px;
+  overflow:hidden;
+  position:relative;
+  box-shadow:0 6px 18px rgba(12,12,12,0.06);
+  cursor:pointer;
+  transition: transform .28s cubic-bezier(.2,.9,.3,1), box-shadow .28s;
+  border:1px solid rgba(0,0,0,0.04);
+}
+.tile:hover{transform:translateY(-6px);box-shadow:0 12px 30px rgba(12,12,12,0.09)}
+.tile img, .tile video{display:block;width:100%;height:200px;object-fit:cover}
+.tile h3{font-size:1rem;margin:12px 12px 6px 12px}
+.tile .meta{color:var(--muted);font-size:.85rem;margin:0 12px 14px 12px}
+
+/* Expanded inline panel: when a tile is clicked, JS inserts .expanded-panel as a grid child that spans full width */
+.expanded-panel{
+  grid-column: 1 / -1;
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(255,255,255,0.98));
+  border-radius:12px;
+  box-shadow:0 14px 40px rgba(12,12,12,0.08);
+  padding:18px;
+  display:block;
+  margin-bottom:8px;
+  overflow:hidden;
+  border:1px solid rgba(0,0,0,0.05);
+  transform-origin:top center;
+  animation: panelIn .36s cubic-bezier(.2,.9,.3,1);
+}
+
+/* content layout inside expanded panel */
+.expanded-inner{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+}
+.expanded-media{flex:1;min-width:320px;max-height:70vh;display:flex;align-items:center;justify-content:center}
+.expanded-media img, .expanded-media video{width:100%;height:auto;max-height:70vh;border-radius:10px}
+.expanded-info{width:320px;max-width:35%;min-width:220px}
+.expanded-info h3{margin:0 0 8px;font-size:1.2rem}
+.expanded-info p{color:var(--muted);margin:0 0 10px}
+.expanded-info .meta-row{font-size:.9rem;color:var(--muted);margin-bottom:12px}
+
+/* close button */
+.expanded-close{
+  position:absolute;right:12px;top:10px;background:transparent;border:none;font-size:22px;cursor:pointer;color:#333;
+}
+
+/* panel animation */
+@keyframes panelIn{
+  from{opacity:0;transform:translateY(-6px) scale(.99)}
+  to{opacity:1;transform:translateY(0) scale(1)}
+}
+
+/* category accent strips (small left border or top strip) - JS will add class like .cat-animations to panel */
+.cat-animations{border-top:4px solid var(--c-animations)}
+.cat-traditional{border-top:4px solid var(--c-traditional)}
+.cat-digital{border-top:4px solid var(--c-digital)}
+.cat-paintings{border-top:4px solid var(--c-paintings)}
+.cat-typography{border-top:4px solid var(--c-typography)}
+.cat-shortfilm{border-top:4px solid var(--c-shortfilm)}
+.cat-photography{border-top:4px solid var(--c-photography)}
+.cat-3d{border-top:4px solid var(--c-3d)}
+
+/* small responsive stack for expanded panel */
+@media (max-width:900px){
+  .expanded-inner{flex-direction:column}
+  .expanded-info{width:100%;max-width:100%}
+}
+
+/* subtle utility */
+.hidden{display:none}

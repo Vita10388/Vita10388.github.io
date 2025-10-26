@@ -235,15 +235,19 @@ a {
   }
 }
 
-/* --- Color Fill Hover Effect --- */
+/* --- Dark Green Color Fill Effect for Sign Up / Login --- */
 .fx-fill {
   position: relative;
   display: inline-block;
-  border: 2px solid #00e0ff;
+  border: 2px solid #254117;
   background: transparent;
-  color: #00e0ff;
+  color: #254117;
   overflow: hidden;
   transition: color 0.4s ease;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
 }
 
 .fx-fill::before {
@@ -253,16 +257,15 @@ a {
   left: 0;
   width: 0;
   height: 100%;
-  background: #00e0ff;
+  background: #254117;
   z-index: -1;
   transition: width 0.4s ease;
 }
 
 .fx-fill:hover {
-  color: #000;
+  color: #fff;
 }
 
 .fx-fill:hover::before {
   width: 100%;
 }
-

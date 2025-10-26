@@ -1,8 +1,8 @@
-/* General Reset */
+/* GENERAL RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -12,12 +12,13 @@ body {
   line-height: 1.6;
 }
 
+/* LINKS */
 a {
   text-decoration: none;
   color: inherit;
 }
 
-/* Header */
+/* HEADER */
 .site-header {
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -38,7 +39,7 @@ a {
 
 .brand img {
   height: 50px;
-  transition: transform 0.3s;
+  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
@@ -46,6 +47,7 @@ a {
   transform: translateY(-3px);
 }
 
+/* NAVIGATION */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -63,7 +65,7 @@ a {
   transform: translateY(-2px);
 }
 
-/* Sign Up / Login Dark Green Fill Button */
+/* SIGN UP / LOGIN DARK GREEN FILL BUTTON */
 .primary-link {
   position: relative;
   display: inline-block;
@@ -98,7 +100,7 @@ a {
   width: 100%;
 }
 
-/* Burger menu (for mobile) */
+/* BURGER MENU (for mobile) */
 .burger {
   display: none;
   flex-direction: column;
@@ -114,55 +116,69 @@ a {
   background: #111;
 }
 
-/* Main content */
+/* GALLERY PAGE MAIN WRAPPER */
 .gallery-page {
   padding: 2rem 0;
 }
 
-/* Search Bar */
-.search-row {
-  margin-bottom: 1rem;
-}
-
-#gallery-search {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-}
-
-/* Category Filter */
-.category-filter {
-  margin-bottom: 2rem;
+/* GALLERY FILTER BAR (Below Header, Fixed When Scrolling) */
+.gallery-filter {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 0.8rem 0;
+  position: sticky;
+  top: 80px; /* below header */
+  z-index: 999;
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
   gap: 0.5rem;
 }
 
-.cat-btn {
+.filter-btn {
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;
   border-radius: 5px;
   background: #f9f9f9;
   cursor: pointer;
-  transition: background 0.3s, transform 0.3s;
+  font-size: 0.95rem;
+  transition: background 0.3s ease, transform 0.3s ease;
 }
 
-.cat-btn.active,
-.cat-btn:hover {
+.filter-btn.active,
+.filter-btn:hover {
   background: #e0e0e0;
   transform: translateY(-2px);
 }
 
-/* Gallery Grid */
+/* SEARCH BAR */
+.search-row {
+  display: flex;
+  justify-content: center;
+  margin: 1.5rem 0;
+}
+
+#gallery-search {
+  width: 60%;
+  max-width: 500px;
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* GALLERY GRID */
 .gallery-grid-wrap {
-  width: 100%;
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .grid {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
 }
 
 .tile {
@@ -182,6 +198,7 @@ a {
 .tile img,
 .tile video {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -198,19 +215,7 @@ a {
   margin-right: 1rem;
 }
 
-/* Footer */
-.site-footer {
-  background: #f8f8f8;
-  padding: 1rem 0;
-  text-align: center;
-  margin-top: 3rem;
-}
-
-#year {
-  font-weight: 600;
-}
-
-/* Lightbox */
+/* LIGHTBOX (image preview) */
 .lightbox {
   position: fixed;
   top: 0;
@@ -240,12 +245,23 @@ a {
   cursor: pointer;
 }
 
-/* Responsive */
+/* FOOTER */
+.site-footer {
+  background: #f8f8f8;
+  padding: 1rem 0;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+#year {
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
   .main-nav ul {
     display: none;
     flex-direction: column;
-    gap: 0;
     background: #fff;
     position: absolute;
     right: 10px;
@@ -260,5 +276,9 @@ a {
 
   .burger {
     display: flex;
+  }
+
+  #gallery-search {
+    width: 80%;
   }
 }

@@ -1,12 +1,23 @@
-/* gallery.css - category rows and expanded panel */
+/* =========================
+   GALLERY LAYOUT CSS
+   ========================= */
 
-/* Category section wrapper */
-.category-section {
+/* Wrapper for all categories */
+.gallery-page {
+  display: flex;
+  flex-direction: column; /* stack categories vertically */
+  gap: 2rem; /* spacing between categories */
+  padding: 2rem 0;
   width: 90%;
   max-width: 1200px;
-  margin: 2rem auto;
-  padding-bottom: 1rem;
+  margin: 0 auto;
+}
+
+/* Individual category section */
+.category-section {
+  width: 100%;
   border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
 }
 
 /* Section header */
@@ -23,11 +34,11 @@
 }
 
 .section-header .count {
-  color: #777;
   font-size: 0.95rem;
+  color: #777;
 }
 
-/* Row: horizontal scroll list of tiles */
+/* Horizontal scroll row for tiles */
 .row {
   display: grid;
   grid-auto-flow: column;
@@ -39,19 +50,19 @@
   -webkit-overflow-scrolling: touch;
 }
 
-/* Each tile inside horizontal row */
+/* Each tile */
 .tile {
   background: #fff;
   border-radius: 10px;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  transition: transform 0.25s, box-shadow 0.25s;
   cursor: pointer;
   scroll-snap-align: start;
-  width: 100%;
-  min-height: 160px;
   display: flex;
   flex-direction: column;
+  width: 100%;
+  min-height: 160px;
+  transition: transform 0.25s, box-shadow 0.25s;
 }
 
 .tile:hover {
@@ -78,102 +89,16 @@
   margin: 0 0.9rem 0.9rem;
 }
 
-/* Expanded inline panel (injected into the DOM by gallery.js) */
-.expanded-panel {
-  grid-column: 1 / -1; /* span full width when placed in regular grid; here it will be full width */
-  width: 100%;
-  background: #fff;
-  border-radius: 10px;
-  margin: 1rem 0;
-  padding: 16px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-  display: flex;
-  gap: 1rem;
-  align-items: flex-start;
-  transition: transform 0.25s, opacity 0.25s;
-}
-
-/* inner */
-.expanded-inner {
-  display: flex;
-  gap: 1rem;
-  width: 100%;
-  align-items: flex-start;
-}
-
-.expanded-media {
-  flex: 1 1 60%;
-  max-width: 60%;
-}
-
-.expanded-media img,
-.expanded-media video {
-  width: 100%;
-  height: auto;
-  display: block;
-  border-radius: 8px;
-  max-height: 70vh;
-  object-fit: contain;
-}
-
-.expanded-info {
-  flex: 1 1 40%;
-  padding: 8px 12px;
-}
-
-.expanded-info h3 {
-  margin-bottom: 8px;
-}
-
-.expanded-info .meta-row {
-  color: #555;
-  margin-bottom: 8px;
-}
-
-/* close button */
-.expanded-close {
-  position: absolute;
-  right: 18px;
-  top: 18px;
-  background: none;
-  border: none;
-  font-size: 1.25rem;
-  cursor: pointer;
-}
-
-/* Category accent classes (strip on left of expanded panel) */
-.expanded-panel::before {
-  content: '';
-  width: 6px;
-  height: 100%;
-  display: block;
-  border-radius: 6px;
-  margin-right: 12px;
-}
-
-/* add color accents for categories (slug names from gallery.js) */
-.expanded-panel.cat-animations::before { background: #FFD2D2; }          /* soft pink */
-.expanded-panel.cat-traditional-drawings::before { background: #CFE3FF; } /* blue */
-.expanded-panel.cat-digital-drawings::before { background: #E6E6F9; }    /* lavender */
-.expanded-panel.cat-paintings::before { background: #FFF3CF; }           /* pale yellow */
-.expanded-panel.cat-typography::before { background: #DFF5E0; }         /* pale green */
-.expanded-panel.cat-short-film::before { background: #F0E6FF; }         /* purple */
-.expanded-panel.cat-photography::before { background: #F8F8F8; }        /* neutral */
-.expanded-panel.cat-3d-modeling::before { background: #FFE6DE; }       /* peach */
-
-/* make rows easier to use on desktop: show more than one column */
+/* Make rows show more than one column on desktop */
 @media (min-width: 900px) {
   .row {
     grid-auto-columns: min(240px, 33%);
   }
-
-  .category-section {
-    padding-left: 0;
-    padding-right: 0;
-  }
 }
 
-/* vertical spacing fix for expanded panel when injected between rows */
-.category-section + .expanded-panel {
-  margin-top: 0.4rem;
+/* Responsive fix for mobile horizontal scroll */
+@media (max-width: 768px) {
+  .row {
+    grid-auto-columns: min(200px, 70%);
+  }
 }

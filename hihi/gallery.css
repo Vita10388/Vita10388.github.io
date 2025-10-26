@@ -138,6 +138,37 @@ body{
   .expanded-inner{flex-direction:column}
   .expanded-info{width:100%;max-width:100%}
 }
+/* Category accent colors */
+.cat-animations {
+  border-top: 5px solid #ff7f50; /* coral */
+}
+.cat-traditional-drawings {
+  border-top: 5px solid #0077ff; /* blue */
+}
+.cat-digital-drawings {
+  border-top: 5px solid #ff1493; /* pink */
+}
+.cat-paintings {
+  border-top: 5px solid #ffa500; /* orange */
+}
+.cat-typography {
+  border-top: 5px solid #00c78c; /* green */
+}
+.cat-short-film {
+  border-top: 5px solid #9370db; /* purple */
+}
+.cat-photography {
+  border-top: 5px solid #2f4f4f; /* dark gray */
+}
+.cat-3d-modeling {
+  border-top: 5px solid #00bcd4; /* cyan */
+}
+
+/* Optional – make the border glow slightly on hover */
+.expanded-panel:hover {
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  transition: box-shadow 0.3s ease;
+}
 
 /* subtle utility */
 .hidden{display:none}

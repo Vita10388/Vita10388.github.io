@@ -1,44 +1,64 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Sign Up — ArtCatalog</title>
-<link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Art Catalog — Home</title>
+  <meta name="description" content="Discover the latest and most viewed artworks in our online art catalog.">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <header class="site-header">
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="gallery.html">Gallery</a>
-    <a href="about.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="signup.html" class="active">Sign Up</a>
-    <a href="login.html">Log In</a>
-  </nav>
+  <div class="container">
+    <a href="index.html" class="logo">ArtCatalog</a>
+    <button id="menu-toggle" aria-expanded="false" aria-controls="main-nav">☰</button>
+    <nav id="main-nav" class="main-nav">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="gallery.html">Gallery</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="signup.html">Sign up</a></li>
+        <li><a href="login.html">Log in</a></li>
+      </ul>
+    </nav>
+  </div>
 </header>
 
-<main class="form-page">
-  <h1>Create Account</h1>
-  <form id="signupForm">
-    <label>Name</label>
-    <input type="text" id="name" required>
+<main class="container">
+  <section class="hero">
+    <div>
+      <h1 id="greeting">Welcome to ArtCatalog</h1>
+      <p>Explore our latest collections and discover inspiring artworks.</p>
+    </div>
+    <div class="small">Explore categories in the <a href="gallery.html">Gallery</a></div>
+  </section>
 
-    <label>Email</label>
-    <input type="email" id="email" required>
-
-    <label>Password</label>
-    <input type="password" id="password" required minlength="6">
-
-    <button type="submit">Sign Up</button>
-  </form>
-  <p id="signupMessage"></p>
+  <section class="latest">
+    <h2 style="margin-top:1rem">Featured Works</h2>
+    <div class="art-grid" style="grid-template-columns: repeat(auto-fit,minmax(220px,1fr));">
+      <div class="art-card">
+        <img src="images/art1.jpg" alt="Featured artwork 1">
+        <div class="meta"><strong>Green Echo</strong><div class="small">by Artist Name</div></div>
+      </div>
+      <div class="art-card">
+        <img src="images/art2.jpg" alt="Featured artwork 2">
+        <div class="meta"><strong>Silent Horizon</strong><div class="small">by Artist Name</div></div>
+      </div>
+      <div class="art-card">
+        <img src="images/art3.jpg" alt="Featured artwork 3">
+        <div class="meta"><strong>Fragmented Dreams</strong><div class="small">by Artist Name</div></div>
+      </div>
+    </div>
+  </section>
 </main>
 
-<footer>
-  <p>© 2025 ArtCatalog</p>
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; <span id="year"></span> ArtCatalog</p>
+  </div>
 </footer>
 
-<script src="js/script.js"></script>
+<script src="js/script.js" defer></script>
 </body>
 </html>

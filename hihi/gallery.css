@@ -1,69 +1,179 @@
-/* ---------- GALLERY.CSS ---------- */
+/* gallery.css - category rows and expanded panel */
 
-/* Don’t touch header/nav */
-#art-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 2rem;
+/* Category section wrapper */
+.category-section {
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
 }
 
+/* Section header */
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.section-header h2 {
+  font-size: 1.25rem;
+  letter-spacing: 0.2px;
+}
+
+.section-header .count {
+  color: #777;
+  font-size: 0.95rem;
+}
+
+/* Row: horizontal scroll list of tiles */
+.row {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(280px, 80%);
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Each tile inside horizontal row */
 .tile {
-  position: relative;
-  cursor: pointer;
-  overflow: hidden;
+  background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  background: white;
-  transition: transform 0.3s;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+  cursor: pointer;
+  scroll-snap-align: start;
+  width: 100%;
+  min-height: 160px;
+  display: flex;
+  flex-direction: column;
 }
 
 .tile:hover {
-  transform: scale(1.03);
+  transform: translateY(-6px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
-.tile img, .tile video {
+.tile img,
+.tile video {
   width: 100%;
-  height: 200px;
+  display: block;
   object-fit: cover;
+  max-height: 220px;
 }
 
 .tile h3 {
-  padding: 0.5rem 1rem;
   font-size: 1rem;
+  margin: 0.6rem 0 0.2rem 0.9rem;
 }
 
-/* Inline expanded panel */
+.tile .meta {
+  font-size: 0.85rem;
+  color: #666;
+  margin: 0 0.9rem 0.9rem;
+}
+
+/* Expanded inline panel (injected into the DOM by gallery.js) */
 .expanded-panel {
-  grid-column: 1 / -1;
-  background: white;
+  grid-column: 1 / -1; /* span full width when placed in regular grid; here it will be full width */
+  width: 100%;
+  background: #fff;
   border-radius: 10px;
-  margin-top: 1rem;
-  padding: 1rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin: 1rem 0;
+  padding: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  transition: transform 0.25s, opacity 0.25s;
 }
 
-.expanded-close {
-  float: right;
-  background: none;
-  border: none;
-  font-size: 1.2rem;
-  cursor: pointer;
-}
-
+/* inner */
 .expanded-inner {
   display: flex;
   gap: 1rem;
-  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.expanded-media {
+  flex: 1 1 60%;
+  max-width: 60%;
 }
 
 .expanded-media img,
 .expanded-media video {
-  max-width: 100%;
-  border-radius: 10px;
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  max-height: 70vh;
+  object-fit: contain;
 }
 
 .expanded-info {
-  flex: 1;
-  min-width: 250px;
+  flex: 1 1 40%;
+  padding: 8px 12px;
+}
+
+.expanded-info h3 {
+  margin-bottom: 8px;
+}
+
+.expanded-info .meta-row {
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* close button */
+.expanded-close {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  background: none;
+  border: none;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+/* Category accent classes (strip on left of expanded panel) */
+.expanded-panel::before {
+  content: '';
+  width: 6px;
+  height: 100%;
+  display: block;
+  border-radius: 6px;
+  margin-right: 12px;
+}
+
+/* add color accents for categories (slug names from gallery.js) */
+.expanded-panel.cat-animations::before { background: #FFD2D2; }          /* soft pink */
+.expanded-panel.cat-traditional-drawings::before { background: #CFE3FF; } /* blue */
+.expanded-panel.cat-digital-drawings::before { background: #E6E6F9; }    /* lavender */
+.expanded-panel.cat-paintings::before { background: #FFF3CF; }           /* pale yellow */
+.expanded-panel.cat-typography::before { background: #DFF5E0; }         /* pale green */
+.expanded-panel.cat-short-film::before { background: #F0E6FF; }         /* purple */
+.expanded-panel.cat-photography::before { background: #F8F8F8; }        /* neutral */
+.expanded-panel.cat-3d-modeling::before { background: #FFE6DE; }       /* peach */
+
+/* make rows easier to use on desktop: show more than one column */
+@media (min-width: 900px) {
+  .row {
+    grid-auto-columns: min(240px, 33%);
+  }
+
+  .category-section {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+/* vertical spacing fix for expanded panel when injected between rows */
+.category-section + .expanded-panel {
+  margin-top: 0.4rem;
 }

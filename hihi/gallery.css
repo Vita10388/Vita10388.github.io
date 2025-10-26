@@ -1,0 +1,91 @@
+/* Reset defaults */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Header styling */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111;
+  color: white;
+  padding: 15px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+header .nav-links a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+}
+
+header .nav-links a:hover,
+header .nav-links a.active {
+  color: #00bfff;
+}
+
+/* Category Bar */
+.category-bar {
+  position: sticky;
+  top: 60px; /* stays right below header */
+  background: #f5f5f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  border-bottom: 1px solid #ddd;
+  z-index: 999;
+}
+
+.category-links a {
+  text-decoration: none;
+  color: #333;
+  margin-right: 15px;
+  font-weight: bold;
+}
+
+.category-links a.active {
+  color: #007bff;
+}
+
+.search-box input {
+  padding: 6px 10px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Gallery Layout */
+.gallery-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* centers all images */
+  align-items: center;
+  gap: 20px;
+  padding: 40px;
+  background: #fff;
+  min-height: 100vh;
+}
+
+.gallery-item {
+  width: 250px;
+  overflow: hidden;
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Hover effect: image moves slightly */
+.gallery-item:hover {
+  transform: scale(1.05);
+}

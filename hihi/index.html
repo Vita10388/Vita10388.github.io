@@ -1,73 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Home – Klasik Sining</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css">
-<link rel="stylesheet" href="css/home.css">
-
-  <script defer src="js/script.js"></script>
-  <script defer src="js/home.js"></script>
-
-</head>
-<body>
-  <header class="site-header">
-    <div class="wrap topbar">
-      <a class="brand" href="index.html">
-        <img src="assets/Klasik Sining!.png" alt="Klasik Sining logo" id="logo">
-        <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining text" id="logotext">
-      </a>
-      <nav class="main-nav">
-        <ul class="nav-list">
-          <li><a href="index.html" class="nav-link active">Home</a></li>
-          <li><a href="about.html" class="nav-link">About</a></li>
-          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-          <li><a href="login.html" class="nav-link">Login</a></li>
-          <li><a href="signup.html" class="nav-link primary-link">Sign up</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section / Slideshow -->
-  <section class="hero">
-    <div class="slides">
-      <div class="slide active" style="background-image: url('assets/slide1.jpg');">
-        <div class="slide-content">
-          <h1>Welcome to Klasik Sining</h1>
-          <p>Discover creativity through every stroke and frame.</p>
-          <a href="gallery.html" class="btn">Explore Gallery</a>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('assets/slide2.jpg');">
-        <div class="slide-content">
-          <h1>Animations</h1>
-          <p>Bringing imagination to life through motion.</p>
-          <a href="gallery.html#animations" class="btn">See More</a>
-        </div>
-      </div>
-
-      <div class="slide" style="background-image: url('assets/slide3.jpg');">
-        <div class="slide-content">
-          <h1>Paintings & Drawings</h1>
-          <p>Explore the colors and creativity of our artists.</p>
-          <a href="gallery.html#paintings" class="btn">View Works</a>
-        </div>
+<main>
+  <div class="personagens">
+    <div class="personagem selecionado" style="background-image: url('assets/animations.jpg');">
+      <div class="conteudo">
+        <h2 class="nome-personagem">Animations</h2>
+        <p class="descricao">Bringing stories to life through motion and creativity.</p>
+        <a href="gallery.html#animations" class="btn">View Works</a>
       </div>
     </div>
 
-    <!-- Navigation arrows -->
-    <button class="prev">&#10094;</button>
-    <button class="next">&#10095;</button>
-  </section>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <p>© 2025 Klasik Sining. All rights reserved.</p>
+    <div class="personagem" style="background-image: url('assets/traditional.jpg');">
+      <div class="conteudo">
+        <h2 class="nome-personagem">Traditional Drawings</h2>
+        <p class="descricao">Classic hand-drawn art that captures timeless beauty.</p>
+        <a href="gallery.html#traditional" class="btn">View Works</a>
+      </div>
     </div>
-  </footer>
-</body>
-</html>
+
+    <div class="personagem" style="background-image: url('assets/digital.jpg');">
+      <div class="conteudo">
+        <h2 class="nome-personagem">Digital Drawings</h2>
+        <p class="descricao">Modern art made with digital tools and imagination.</p>
+        <a href="gallery.html#digital" class="btn">View Works</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="botoes">
+    <button class="botao selecionado"><img src="assets/animations-icon.png" alt="Animations"></button>
+    <button class="botao"><img src="assets/traditional-icon.png" alt="Traditional"></button>
+    <button class="botao"><img src="assets/digital-icon.png" alt="Digital"></button>
+  </div>
+</main>

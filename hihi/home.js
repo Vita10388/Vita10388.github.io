@@ -1,18 +1,23 @@
-// Update copyright year
-document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("year").textContent = new Date().getFullYear();
+const slides = document.querySelectorAll('.slide');
+let index = 0;
 
-  // Simple auto-scroll animation for card slider
-  const slider = document.querySelector(".card-slider");
-  let scrollAmount = 0;
+function showSlide(i) {
+  slides.forEach(slide => slide.classList.remove('active'));
+  slides[i].classList.add('active');
+}
 
-  setInterval(() => {
-    slider.scrollBy({ left: 320, behavior: "smooth" });
-    scrollAmount += 320;
-
-    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
-      scrollAmount = 0;
-      slider.scrollTo({ left: 0, behavior: "smooth" });
-    }
-  }, 4000);
+document.querySelector('.next').addEventListener('click', () => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
 });
+
+document.querySelector('.prev').addEventListener('click', () => {
+  index = (index - 1 + slides.length) % slides.length;
+  showSlide(index);
+});
+
+// Auto slide every 5 seconds
+setInterval(() => {
+  index = (index + 1) % slides.length;
+  showSlide(index);
+}, 5000);

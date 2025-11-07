@@ -1,84 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About – Klasik Sining</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
-    <script defer src="script.js"></script>
-</head>
-<body>
-    <header class="site-header">
-        <div class="wrap topbar">
-            <a class="brand" href="index.html">
-                <img src="assets/Klasik Sining!.png" alt="Klasik Sining logo" id="logo">
-                <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining text" id="logotext">
-            </a>
-            <nav class="main-nav">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link">Home</a></li>
-                    <li><a href="about.html" class="nav-link active">About</a></li>
-                    <li><a href="gallery.html" class="nav-link">Gallery</a></li>
-                    <li><a href="login.html" class="nav-link fx-fill">Login</a></li>
-                    <li><a href="signup.html" class="nav-link fx-fill">Sign Up</a></li>
-                </ul>
-                <button id="burger" class="burger">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
+<main class="wrap">
+  <section class="about-section">
+    <h1>About Klasik Sining</h1>
+    <p>Klasik Sining is a platform showcasing various artworks from talented creators. Explore animations, traditional and digital drawings, paintings, typography, short films, photography, and 3D modeling.</p>
+    <p>Our goal is to make art accessible, organized, and beautifully presented for everyone.</p>
+  </section>
 
-    <!-- 🔻 Automatic Slideshow Section -->
-    <section class="slideshow-container">
-        <div class="mySlides fade">
-            <img src="assets/slide1.jpg" alt="Digital painting example">
-            <div class="text">
-                <h2>Welcome to Klasik Sining</h2>
-                <p>Discover timeless creativity — explore our curated collection of digital and traditional artworks from talented creators.</p>
-            </div>
-        </div>
-
-        <div class="mySlides fade">
-            <img src="assets/slide2.jpg" alt="Animation art">
-            <div class="text">
-                <h2>Experience Art in Motion</h2>
-                <p>Watch animations and short films that bring imagination to life — crafted by passionate artists and storytellers.</p>
-            </div>
-        </div>
-
-        <div class="mySlides fade">
-            <img src="assets/slide3.jpg" alt="Photography showcase">
-            <div class="text">
-                <h2>Capture Every Moment</h2>
-                <p>Browse striking photography and creative typography that express emotion, culture, and vision through art.</p>
-            </div>
-        </div>
-    </section>
-
-    <div class="dots-container" style="text-align:center; margin-top:10px;">
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
+  <!-- 🔻 Automatic Slideshow starts here -->
+  <section class="slideshow-container">
+    <div class="mySlides fade">
+      <div class="numbertext">1 / 3</div>
+      <img src="assets/slide1.jpg" style="width:100%">
+      <div class="text">Caption One</div>
     </div>
-    <!-- 🔺 End of Slideshow Section -->
 
-    <main class="wrap">
-        <section class="about-section">
-            <h1>About Klasik Sining</h1>
-            <p><strong>Klasik Sining</strong> is an online art catalog dedicated to showcasing creativity in all forms — from digital illustrations to traditional paintings, animations, typography, short films, and 3D designs. Our platform brings together artists and viewers in one space where art is celebrated, explored, and shared.</p>
-            <p>We aim to provide an organized and visually rich experience for art lovers and creators alike. Every featured work is properly credited to its original artist, ensuring respect for creativity and authenticity.</p>
-            <p>Join our community by signing up to leave comments and share your thoughts about your favorite artworks. Discover inspiration, talent, and artistry — all in one place.</p>
-        </section>
-    </main>
+    <div class="mySlides fade">
+      <div class="numbertext">2 / 3</div>
+      <img src="assets/slide2.jpg" style="width:100%">
+      <div class="text">Caption Two</div>
+    </div>
 
-    <footer class="site-footer">
-        <div class="wrap">
-            <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
-        </div>
-    </footer>
-</body>
-</html>
+    <div class="mySlides fade">
+      <div class="numbertext">3 / 3</div>
+      <img src="assets/slide3.jpg" style="width:100%">
+      <div class="text">Caption Three</div>
+    </div>
+  </section>
+
+  <div class="dots-container" style="text-align:center; margin-top:10px;">
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+    <span class="dot"></span> 
+  </div>
+  <!-- 🔺 Automatic Slideshow ends here -->
+</main>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home – Klasik Sining</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="wrap topbar">
+      <a class="brand" href="index.html">
+        <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining logo" id="logo">
+        <img src="assets/Klasik Sining!.png" alt="Klasik Sining text" id="logotext">
+      </a>
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <li><a href="index.html" class="nav-link active">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+          <li><a href="login.html" class="nav-link">Login</a></li>
+          <li><a href="signup.html" class="nav-link primary-link">Sign Up</a></li>
+        </ul>
+        <button id="burger" class="burger" aria-label="Open menu">
+          <span></span><span></span><span></span>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="home-content wrap">
+    <!-- LATEST ARTWORKS -->
+    <section class="art-section">
+      <h2>Latest Artworks</h2>
+      <div class="slideshow-container" id="latest">
+        <button class="prev" onclick="plusSlides(-1, 'latest')">&#10094;</button>
+        <div class="slide-row">
+          <div class="slide"><img src="assets/art1.jpg" alt="Artwork 1"></div>
+          <div class="slide"><img src="assets/art2.jpg" alt="Artwork 2"></div>
+          <div class="slide"><img src="assets/art3.jpg" alt="Artwork 3"></div>
+          <div class="slide"><img src="assets/art4.jpg" alt="Artwork 4"></div>
+        </div>
+        <button class="next" onclick="plusSlides(1, 'latest')">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- MOST VIEWED ARTWORKS -->
+    <section class="art-section">
+      <h2>Most Viewed</h2>
+      <div class="slideshow-container" id="most-viewed">
+        <button class="prev" onclick="plusSlides(-1, 'most-viewed')">&#10094;</button>
+        <div class="slide-row">
+          <div class="slide"><img src="assets/art5.jpg" alt="Artwork 5"></div>
+          <div class="slide"><img src="assets/art6.jpg" alt="Artwork 6"></div>
+          <div class="slide"><img src="assets/art7.jpg" alt="Artwork 7"></div>
+          <div class="slide"><img src="assets/art8.jpg" alt="Artwork 8"></div>
+        </div>
+        <button class="next" onclick="plusSlides(1, 'most-viewed')">&#10095;</button>
+      </div>
+    </section>
+
+    <!-- WELCOME SECTION -->
+    <section class="home-intro">
+      <h1>Welcome to Klasik Sining</h1>
+      <p>Explore artworks from animations, drawings, paintings, short films, photography, typography, and 3D modeling.</p>
+      <a href="gallery.html" class="primary-link">View Gallery</a>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="wrap">
+      <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>

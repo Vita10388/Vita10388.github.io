@@ -1,6 +1,5 @@
-// Burger Menu + Footer Year + Slideshow
 document.addEventListener('DOMContentLoaded', () => {
-  // Burger
+  // BURGER MENU
   const burger = document.getElementById('burger');
   const navList = document.querySelector('.main-nav ul');
   if (burger && navList) {
@@ -9,29 +8,29 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Footer year
+  // FOOTER YEAR
   const yearEl = document.getElementById('year');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // --- Automatic Slideshow ---
-  let slideIndex = 0;
-  const slides = document.getElementsByClassName("mySlides");
-  const dots = document.getElementsByClassName("dot");
+  // MANUAL SLIDESHOW FUNCTION
+  const slideGroups = {};
+  document.querySelectorAll('.slideshow-container').forEach(container => {
+    const slides = container.querySelectorAll('.slide');
+    slideGroups[container.id] = {slides, index: 1};
+    showSlides(container.id, 1);
+  });
 
-  function showSlides() {
-    if (slides.length === 0) return;
-    for (let i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
-    }
-    slideIndex++;
-    if (slideIndex > slides.length) { slideIndex = 1; }
-    for (let i = 0; i < dots.length; i++) {
-      dots[i].classList.remove("active");
-    }
-    slides[slideIndex - 1].style.display = "block";
-    dots[slideIndex - 1].classList.add("active");
-    setTimeout(showSlides, 3000); // 3 seconds per slide
+  window.plusSlides = function(n, id) {
+    showSlides(id, slideGroups[id].index += n);
+  };
+
+  function showSlides(id, n) {
+    const group = slideGroups[id];
+    if (!group) return;
+    const slides = group.slides;
+    if (n > slides.length) group.index = 1;
+    if (n < 1) group.index = slides.length;
+    slides.forEach(slide => slide.style.display = 'none');
+    slides[group.index - 1].style.display = 'block';
   }
-
-  showSlides();
 });

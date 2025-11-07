@@ -116,14 +116,23 @@ a {
   background: #111;
 }
 
+/* ============================= */
 /* CAROUSEL SECTION */
+/* ============================= */
 .carousel-section {
   text-align: center;
-  margin: 2.5rem 0;
+  margin: 3rem 0;
+}
+
+.carousel-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
 }
 
 .carousel-section h2 {
-  font-size: 1.8rem;
+  font-size: 2rem;
   margin-bottom: 1rem;
   color: #254117;
   font-weight: 700;
@@ -133,7 +142,7 @@ a {
   position: relative;
   width: 100%;
   overflow: hidden;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
 }
 
@@ -143,11 +152,13 @@ a {
 }
 
 .carousel-track img {
-  width: 25%;
+  width: 45%;
+  height: 350px;
   object-fit: cover;
-  border-radius: 10px;
-  margin: 0 0.3rem;
+  border-radius: 12px;
+  margin: 0 0.5rem;
   transition: transform 0.3s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .carousel-track img:hover {
@@ -162,10 +173,10 @@ a {
   color: #fff;
   border: none;
   font-size: 2rem;
-  padding: 0.4rem 0.8rem;
+  padding: 0.6rem 0.9rem;
   cursor: pointer;
   border-radius: 50%;
-  opacity: 0.8;
+  opacity: 0.85;
   transition: opacity 0.3s ease;
   z-index: 10;
 }
@@ -177,7 +188,33 @@ a {
 .carousel-btn.prev { left: 10px; }
 .carousel-btn.next { right: 10px; }
 
+/* ============================= */
+/* HOME INTRO SECTION */
+/* ============================= */
+.home-intro {
+  text-align: center;
+  padding: 4rem 1rem;
+  background-color: #f8f8f8;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 3rem auto;
+}
+
+.home-intro h1 {
+  font-size: 2.5rem;
+  color: #254117;
+  margin-bottom: 1rem;
+}
+
+.home-intro p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+/* ============================= */
 /* FOOTER */
+/* ============================= */
 .site-footer {
   background: #f8f8f8;
   padding: 1rem 0;
@@ -189,7 +226,9 @@ a {
   font-weight: 600;
 }
 
-/* RESPONSIVE */
+/* ============================= */
+/* RESPONSIVE DESIGN */
+/* ============================= */
 @media (max-width: 768px) {
   .main-nav ul {
     display: none;
@@ -212,6 +251,15 @@ a {
   }
 
   .carousel-track img {
-    width: 50%;
+    width: 90%;
+    height: 250px;
+  }
+
+  .home-intro h1 {
+    font-size: 2rem;
+  }
+
+  .home-intro p {
+    font-size: 1rem;
   }
 }

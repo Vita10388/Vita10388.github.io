@@ -1,20 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Klasik Sining – Home</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home – Klasik Sining</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
   <header class="site-header">
     <div class="wrap topbar">
       <a class="brand" href="index.html">
-        <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining icon" id="logo">
+        <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining logo" id="logo">
         <img src="assets/Klasik Sining!.png" alt="Klasik Sining text" id="logotext">
       </a>
-
       <nav class="main-nav">
         <ul class="nav-list">
           <li><a href="index.html" class="nav-link active">Home</a></li>
@@ -28,44 +28,12 @@
     </div>
   </header>
 
-  <main>
-    <div class="wrap">
-
-      <section class="art-section">
-        <h2>Latest Artworks</h2>
-        <div class="slideshow-container" id="latest">
-          <div class="slides-wrapper">
-            <img src="assets/latest1.jpg" alt="Latest 1">
-            <img src="assets/latest2.jpg" alt="Latest 2">
-            <img src="assets/latest3.jpg" alt="Latest 3">
-            <img src="assets/latest4.jpg" alt="Latest 4">
-          </div>
-          <a class="prev" onclick="plusSlides(-1,'latest')">&#10094;</a>
-          <a class="next" onclick="plusSlides(1,'latest')">&#10095;</a>
-        </div>
-      </section>
-
-      <section class="art-section">
-        <h2>Most Viewed Artworks</h2>
-        <div class="slideshow-container" id="most-viewed">
-          <div class="slides-wrapper">
-            <img src="assets/viewed1.jpg" alt="Viewed 1">
-            <img src="assets/viewed2.jpg" alt="Viewed 2">
-            <img src="assets/viewed3.jpg" alt="Viewed 3">
-            <img src="assets/viewed4.jpg" alt="Viewed 4">
-          </div>
-          <a class="prev" onclick="plusSlides(-1,'most-viewed')">&#10094;</a>
-          <a class="next" onclick="plusSlides(1,'most-viewed')">&#10095;</a>
-        </div>
-      </section>
-
-      <section class="home-intro">
-        <h1>Welcome to Klasik Sining</h1>
-        <p>Explore artworks from animations, drawings, paintings, short films, photography, typography, and 3D modeling.</p>
-        <a href="gallery.html" class="primary-link view-gallery">View Gallery</a>
-      </section>
-
-    </div>
+  <main class="wrap">
+    <section class="home-intro">
+      <h1>Welcome to Klasik Sining</h1>
+      <p>Explore artworks from animations, drawings, paintings, short films, photography, typography, and 3D modeling.</p>
+      <a href="gallery.html" class="primary-link">View Gallery</a>
+    </section>
   </main>
 
   <footer class="site-footer">
@@ -73,7 +41,5 @@
       <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
     </div>
   </footer>
-
-  <script src="script.js"></script>
 </body>
 </html>

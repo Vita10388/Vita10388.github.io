@@ -8,17 +8,14 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- HEADER -->
   <header class="site-header">
     <div class="wrap topbar">
-      <a class="brand" href="index.html" aria-label="Klasik Sining home">
-        <!-- main logo (image) -->
+      <a class="brand" href="index.html">
         <img src="assets/Klasik Sining! (1).png" alt="Klasik Sining icon" id="logo">
-        <!-- text logo (image) -->
         <img src="assets/Klasik Sining!.png" alt="Klasik Sining text" id="logotext">
       </a>
 
-      <nav class="main-nav" aria-label="Main navigation">
+      <nav class="main-nav">
         <ul class="nav-list">
           <li><a href="index.html" class="nav-link active">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
@@ -26,45 +23,42 @@
           <li><a href="login.html" class="nav-link">Login</a></li>
           <li><a href="signup.html" class="nav-link primary-link">Sign up</a></li>
         </ul>
-
         <button id="burger" class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
       </nav>
     </div>
   </header>
 
-  <!-- MAIN -->
   <main>
     <div class="wrap">
 
-      <!-- Latest artworks slideshow (top) -->
       <section class="art-section">
         <h2>Latest Artworks</h2>
         <div class="slideshow-container" id="latest">
-          <div class="slide fade"><img src="assets/latest1.jpg" alt="Latest artwork 1"></div>
-          <div class="slide fade"><img src="assets/latest2.jpg" alt="Latest artwork 2"></div>
-          <div class="slide fade"><img src="assets/latest3.jpg" alt="Latest artwork 3"></div>
-          <div class="slide fade"><img src="assets/latest4.jpg" alt="Latest artwork 4"></div>
-
-          <a class="prev" onclick="plusSlides(-1,'latest')" aria-label="Previous latest">&#10094;</a>
-          <a class="next" onclick="plusSlides(1,'latest')" aria-label="Next latest">&#10095;</a>
+          <div class="slides-wrapper">
+            <img src="assets/latest1.jpg" alt="Latest 1">
+            <img src="assets/latest2.jpg" alt="Latest 2">
+            <img src="assets/latest3.jpg" alt="Latest 3">
+            <img src="assets/latest4.jpg" alt="Latest 4">
+          </div>
+          <a class="prev" onclick="plusSlides(-1,'latest')">&#10094;</a>
+          <a class="next" onclick="plusSlides(1,'latest')">&#10095;</a>
         </div>
       </section>
 
-      <!-- Most viewed artworks slideshow (below) -->
       <section class="art-section">
         <h2>Most Viewed Artworks</h2>
         <div class="slideshow-container" id="most-viewed">
-          <div class="slide fade"><img src="assets/viewed1.jpg" alt="Most viewed artwork 1"></div>
-          <div class="slide fade"><img src="assets/viewed2.jpg" alt="Most viewed artwork 2"></div>
-          <div class="slide fade"><img src="assets/viewed3.jpg" alt="Most viewed artwork 3"></div>
-          <div class="slide fade"><img src="assets/viewed4.jpg" alt="Most viewed artwork 4"></div>
-
-          <a class="prev" onclick="plusSlides(-1,'most-viewed')" aria-label="Previous viewed">&#10094;</a>
-          <a class="next" onclick="plusSlides(1,'most-viewed')" aria-label="Next viewed">&#10095;</a>
+          <div class="slides-wrapper">
+            <img src="assets/viewed1.jpg" alt="Viewed 1">
+            <img src="assets/viewed2.jpg" alt="Viewed 2">
+            <img src="assets/viewed3.jpg" alt="Viewed 3">
+            <img src="assets/viewed4.jpg" alt="Viewed 4">
+          </div>
+          <a class="prev" onclick="plusSlides(-1,'most-viewed')">&#10094;</a>
+          <a class="next" onclick="plusSlides(1,'most-viewed')">&#10095;</a>
         </div>
       </section>
 
-      <!-- Welcome + View Gallery (centered) -->
       <section class="home-intro">
         <h1>Welcome to Klasik Sining</h1>
         <p>Explore artworks from animations, drawings, paintings, short films, photography, typography, and 3D modeling.</p>
@@ -74,7 +68,6 @@
     </div>
   </main>
 
-  <!-- FOOTER -->
   <footer class="site-footer">
     <div class="wrap">
       <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>

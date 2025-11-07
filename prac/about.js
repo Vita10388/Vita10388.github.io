@@ -1,3 +1,18 @@
+// script.js - burger, search, category navigation, footer year
+document.addEventListener('DOMContentLoaded', () => {
+  // Burger
+  const burger = document.getElementById('burger');
+  const navList = document.querySelector('.main-nav ul');
+  if (burger && navList) {
+    burger.addEventListener('click', () => {
+      navList.classList.toggle('show');
+    });
+  }
+
+  // Footer year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
+
   // --- Automatic Slideshow ---
   let slideIndex = 0;
   const slides = document.getElementsByClassName("mySlides");
@@ -15,6 +30,8 @@
     }
     slides[slideIndex - 1].style.display = "block";
     dots[slideIndex - 1].classList.add("active");
-    setTimeout(showSlides, 2000); // Change image every 2 seconds
+    setTimeout(showSlides, 3000); // Change every 3 seconds
   }
+
   showSlides();
+});

@@ -1,33 +1,30 @@
-document.addEventListener("DOMContentLoaded", () => {
-  // Burger
+document.addEventListener('DOMContentLoaded', () => {
+  // Burger Menu
   const burger = document.getElementById('burger');
   const navList = document.querySelector('.main-nav ul');
-  burger?.addEventListener('click', () => navList.classList.toggle('show'));
+  if (burger && navList) {
+    burger.addEventListener('click', () => {
+      navList.classList.toggle('show');
+    });
+  }
 
-  // Footer year
-  document.getElementById('year').textContent = new Date().getFullYear();
+  // Footer Year
+  const yearEl = document.getElementById('year');
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Manual horizontal slides
-  const slideshows = document.querySelectorAll('.slideshow-container');
-  const state = {};
-
-  slideshows.forEach(container => {
-    const wrapper = container.querySelector('.slides-wrapper');
-    const slides = wrapper.querySelectorAll('img');
-    const id = container.id;
-    state[id] = { index: 0, total: slides.length, wrapper };
-    updateSlide(id);
+  // Manual Slideshow Logic
+  const slideGroups = {};
+  document.querySelectorAll('.slideshow-container').forEach(container => {
+    const slides = container.querySelector('.slide-row');
+    slideGroups[container.id] = { slides, index: 0 };
   });
 
-  window.plusSlides = function (n, id) {
-    const s = state[id];
-    s.index = (s.index + n + s.total) % s.total;
-    updateSlide(id);
+  window.plusSlides = function(n, id) {
+    const group = slideGroups[id];
+    if (!group) return;
+    const slideRow = group.slides;
+    const totalSlides = slideRow.children.length;
+    group.index = (group.index + n + totalSlides) % totalSlides;
+    slideRow.style.transform = `translateX(-${group.index * 25}%)`;
   };
-
-  function updateSlide(id) {
-    const s = state[id];
-    const offset = -s.index * 100;
-    s.wrapper.style.transform = `translateX(${offset}%)`;
-  }
 });

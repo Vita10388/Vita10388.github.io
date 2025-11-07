@@ -1,23 +1,12 @@
-const slides = document.querySelectorAll('.slide');
-let index = 0;
+const botoes = document.querySelectorAll('.botao');
+const personagens = document.querySelectorAll('.personagem');
 
-function showSlide(i) {
-  slides.forEach(slide => slide.classList.remove('active'));
-  slides[i].classList.add('active');
-}
+botoes.forEach((botao, index) => {
+  botao.addEventListener("click", () => {
+    document.querySelector(".botao.selecionado").classList.remove("selecionado");
+    botao.classList.add("selecionado");
 
-document.querySelector('.next').addEventListener('click', () => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
+    document.querySelector(".personagem.selecionado").classList.remove("selecionado");
+    personagens[index].classList.add("selecionado");
+  });
 });
-
-document.querySelector('.prev').addEventListener('click', () => {
-  index = (index - 1 + slides.length) % slides.length;
-  showSlide(index);
-});
-
-// Auto slide every 5 seconds
-setInterval(() => {
-  index = (index + 1) % slides.length;
-  showSlide(index);
-}, 5000);

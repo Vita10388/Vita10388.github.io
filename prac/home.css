@@ -1,4 +1,4 @@
-/* GENERAL RESET */
+/* ================= GENERAL RESET ================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +18,7 @@ a {
   color: inherit;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
 .site-header {
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -47,7 +47,7 @@ a {
   transform: translateY(-3px);
 }
 
-/* NAVIGATION */
+/* ================= NAVIGATION ================= */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -66,7 +66,7 @@ a {
   transform: translateY(-2px);
 }
 
-/* SIGN UP / LOGIN GREEN FILL BUTTON (restored) */
+/* SIGN UP / LOGIN BUTTON */
 .primary-link {
   position: relative;
   display: inline-block;
@@ -88,7 +88,7 @@ a {
   left: 0;
   width: 0;
   height: 100%;
-  background: #C1E1C1; /* your requested fill color */
+  background: #C1E1C1;
   z-index: -1;
   transition: width 0.4s ease;
 }
@@ -101,7 +101,7 @@ a {
   width: 100%;
 }
 
-/* BURGER MENU (for mobile) */
+/* ================= BURGER MENU (MOBILE) ================= */
 .burger {
   display: none;
   flex-direction: column;
@@ -117,7 +117,123 @@ a {
   background: #111;
 }
 
-/* GALLERY PAGE MAIN WRAPPER */
+/* ================= HOME PAGE ================= */
+.home-intro {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 700px;
+}
+
+.home-intro h1 {
+  font-size: 2.2rem;
+  color: #254117;
+  margin-bottom: 1rem;
+}
+
+.home-intro p {
+  font-size: 1rem;
+  color: #333;
+  margin-bottom: 1.5rem;
+}
+
+/* ---------- SLIDESHOW SECTIONS ---------- */
+.art-section {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.art-section h2 {
+  font-size: 1.8rem;
+  color: #254117;
+  margin-bottom: 1rem;
+}
+
+.slideshow-container {
+  max-width: 800px;
+  position: relative;
+  margin: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+
+.mySlides {
+  display: none;
+}
+
+.mySlides img {
+  width: 100%;
+  height: auto;
+}
+
+.text {
+  background: rgba(37, 65, 23, 0.8);
+  color: #fff;
+  font-size: 16px;
+  padding: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  padding: 12px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  border-radius: 3px;
+  user-select: none;
+  background: rgba(0,0,0,0.4);
+  transform: translateY(-50%);
+}
+
+.next {
+  right: 0;
+}
+
+.prev:hover, .next:hover {
+  background-color: rgba(37,65,23,0.8);
+}
+
+.dots {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.dot {
+  cursor: pointer;
+  height: 12px;
+  width: 12px;
+  margin: 0 3px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.3s ease;
+}
+
+.active-dot, .dot:hover {
+  background-color: #254117;
+}
+
+.center-btn {
+  text-align: center;
+  margin: 2rem 0 3rem;
+}
+
+.center-btn .primary-link {
+  background: #254117;
+  color: #fff;
+  border: none;
+}
+
+.center-btn .primary-link:hover {
+  background: #3b5f2b;
+}
+
+/* ================= GALLERY PAGE ================= */
 .gallery-page {
   padding: 2rem 0;
 }
@@ -168,7 +284,7 @@ a {
   background: #f3f3f3;
 }
 
-/* Footer */
+/* ================= FOOTER ================= */
 .site-footer {
   background: #f8f8f8;
   padding: 1rem 0;
@@ -180,7 +296,7 @@ a {
   font-weight: 600;
 }
 
-/* RESPONSIVE */
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
   .main-nav ul {
     display: none;
@@ -206,92 +322,4 @@ a {
     width: 90%;
   }
 }
-/* ---------- HOME PAGE SLIDESHOW SECTIONS ---------- */
-.art-section {
-  text-align: center;
-  margin: 3rem 0;
-}
 
-.art-section h2 {
-  font-size: 1.8rem;
-  color: #254117;
-  margin-bottom: 1rem;
-}
-
-/* Slideshow container */
-.slideshow-container {
-  max-width: 800px;
-  position: relative;
-  margin: auto;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-}
-
-/* Each slide */
-.mySlides {
-  display: none;
-}
-.mySlides img {
-  width: 100%;
-  height: auto;
-}
-
-/* Caption text */
-.text {
-  background: rgba(37, 65, 23, 0.8);
-  color: #fff;
-  font-size: 16px;
-  padding: 10px;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-}
-
-/* Prev/Next buttons */
-.prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%;
-  padding: 12px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  border-radius: 3px;
-  user-select: none;
-  background: rgba(0,0,0,0.4);
-  transform: translateY(-50%);
-}
-
-.next {
-  right: 0;
-}
-
-.prev:hover, .next:hover {
-  background-color: rgba(37,65,23,0.8);
-}
-
-/* Dots */
-.dots {
-  text-align: center;
-  margin-top: 10px;
-}
-.dot {
-  cursor: pointer;
-  height: 12px;
-  width: 12px;
-  margin: 0 3px;
-  background-color: #bbb;
-  border-radius: 50%;
-  display: inline-block;
-  transition: background-color 0.3s ease;
-}
-.active-dot, .dot:hover {
-  background-color: #254117;
-}
-
-/* Center button below slides */
-.center-btn {
-  text-align: center;
-  margin: 2rem 0 3rem;
-}

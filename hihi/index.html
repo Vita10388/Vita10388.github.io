@@ -5,8 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Home – Klasik Sining</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css" />
-  <script defer src="script.js"></script>
+  <link rel="stylesheet" href="css/home.css" />
+  <script defer src="js/home.js"></script>
 </head>
 <body>
   <header class="site-header">
@@ -23,42 +23,46 @@
           <li><a href="login.html" class="nav-link">Login</a></li>
           <li><a href="signup.html" class="nav-link primary-link">Sign up</a></li>
         </ul>
-        <button id="burger" class="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
       </nav>
     </div>
   </header>
 
-  <main class="wrap">
-    <section class="hero-section">
-      <div class="hero-content">
-        <h1>Welcome to Klasik Sining</h1>
-        <p>Klasik Sining is a platform showcasing various artworks from talented creators. Explore animations, traditional and digital drawings, paintings, typography, short films, photography, and 3D modeling.</p>
-        <a href="gallery.html" class="primary-link">View Gallery</a>
+  <!-- Hero Section / Slideshow -->
+  <section class="hero">
+    <div class="slides">
+      <div class="slide active" style="background-image: url('assets/slide1.jpg');">
+        <div class="slide-content">
+          <h1>Welcome to Klasik Sining</h1>
+          <p>Discover creativity through every stroke and frame.</p>
+          <a href="gallery.html" class="btn">Explore Gallery</a>
+        </div>
       </div>
 
-      <div class="card-slider">
-        <div class="card" style="background-image: url('assets/animation.jpg')">
-          <div class="card-info">Animations</div>
-        </div>
-        <div class="card" style="background-image: url('assets/digital.jpg')">
-          <div class="card-info">Digital Drawings</div>
-        </div>
-        <div class="card" style="background-image: url('assets/painting.jpg')">
-          <div class="card-info">Paintings</div>
-        </div>
-        <div class="card" style="background-image: url('assets/photography.jpg')">
-          <div class="card-info">Photography</div>
-        </div>
-        <div class="card" style="background-image: url('assets/3dmodel.jpg')">
-          <div class="card-info">3D Modeling</div>
+      <div class="slide" style="background-image: url('assets/slide2.jpg');">
+        <div class="slide-content">
+          <h1>Animations</h1>
+          <p>Bringing imagination to life through motion.</p>
+          <a href="gallery.html#animations" class="btn">See More</a>
         </div>
       </div>
-    </section>
-  </main>
+
+      <div class="slide" style="background-image: url('assets/slide3.jpg');">
+        <div class="slide-content">
+          <h1>Paintings & Drawings</h1>
+          <p>Explore the colors and creativity of our artists.</p>
+          <a href="gallery.html#paintings" class="btn">View Works</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Navigation arrows -->
+    <button class="prev">&#10094;</button>
+    <button class="next">&#10095;</button>
+  </section>
 
   <footer class="site-footer">
     <div class="wrap">
-      <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
+      <p>© 2025 Klasik Sining. All rights reserved.</p>
     </div>
   </footer>
 </body>

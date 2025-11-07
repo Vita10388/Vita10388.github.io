@@ -3,96 +3,84 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Klasik Sining – Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Home – Klasik Sining</title>
+  <link rel="stylesheet" href="home.css" />
 </head>
 <body>
-
   <!-- HEADER -->
   <header class="site-header">
     <div class="wrap">
       <div class="brand">
         <img src="logo.png" alt="Klasik Sining Logo" />
-        <h1>Klasik Sining</h1>
+        <span class="brand-name">Klasik Sining</span>
       </div>
-
       <nav class="main-nav">
         <ul>
-          <li><a href="home.html" class="nav-link active">Home</a></li>
+          <li><a href="home.html" class="nav-link">Home</a></li>
           <li><a href="about.html" class="nav-link">About</a></li>
           <li><a href="gallery.html" class="nav-link">Gallery</a></li>
           <li><a href="login.html" class="nav-link">Log In</a></li>
-          <li><a href="signup.html" class="nav-link primary-link">Sign Up</a></li>
+          <li><a href="signup.html" class="primary-link">Sign Up</a></li>
         </ul>
       </nav>
-
       <button class="burger" id="burger">
-        <span></span>
-        <span></span>
-        <span></span>
+        <span></span><span></span><span></span>
       </button>
     </div>
   </header>
 
-  <!-- SLIDESHOW SECTION -->
-  <div class="slideshow-container">
-
-    <div class="mySlides fade">
-      <img src="art1.jpg" alt="Artwork 1" />
-      <div class="text">
-        <h2>Latest Collections</h2>
-        <p>Discover the newest artworks added by our creative community.</p>
-      </div>
-    </div>
-
-    <div class="mySlides fade">
-      <img src="art2.jpg" alt="Artwork 2" />
-      <div class="text">
-        <h2>Most Viewed Works</h2>
-        <p>See the art that everyone’s talking about this month.</p>
-      </div>
-    </div>
-
-    <div class="mySlides fade">
-      <img src="art3.jpg" alt="Artwork 3" />
-      <div class="text">
-        <h2>Digital Creations</h2>
-        <p>Experience the stunning imagination of digital artists.</p>
-      </div>
-    </div>
-
-    <div class="mySlides fade">
-      <img src="art4.jpg" alt="Artwork 4" />
-      <div class="text">
-        <h2>Traditional Masterpieces</h2>
-        <p>Celebrate art made by hand with passion and skill.</p>
-      </div>
-    </div>
-
-    <!-- Dots -->
-    <div style="text-align:center; margin-top: 10px;">
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
-  </div>
-
-  <!-- WELCOME SECTION -->
-  <section style="text-align:center; padding: 3rem 1rem;">
-    <h2>Welcome to Klasik Sining</h2>
-    <p>
-      Discover, explore, and celebrate artworks created by talented artists.
-      From digital to traditional, experience creativity without limits.
-    </p>
-    <a href="gallery.html" class="primary-link" style="margin-top:1rem; display:inline-block;">View Gallery</a>
+  <!-- HERO / INTRO -->
+  <section class="hero">
+    <h1>Welcome to Klasik Sining</h1>
+    <p>Explore the creativity of our artists — from traditional to digital works.</p>
   </section>
+
+  <!-- MOST VIEWED -->
+  <section class="art-section">
+    <h2>Most Viewed Artworks</h2>
+    <div class="slideshow-container" id="most-viewed">
+      <div class="slide fade">
+        <img src="art1.jpg" alt="Art 1">
+      </div>
+      <div class="slide fade">
+        <img src="art2.jpg" alt="Art 2">
+      </div>
+      <div class="slide fade">
+        <img src="art3.jpg" alt="Art 3">
+      </div>
+      <a class="prev" onclick="plusSlides(-1, 'most-viewed')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'most-viewed')">&#10095;</a>
+    </div>
+  </section>
+
+  <!-- LATEST ARTWORKS -->
+  <section class="art-section">
+    <h2>Latest Artworks</h2>
+    <div class="slideshow-container" id="latest">
+      <div class="slide fade">
+        <img src="latest1.jpg" alt="Latest Art 1">
+      </div>
+      <div class="slide fade">
+        <img src="latest2.jpg" alt="Latest Art 2">
+      </div>
+      <div class="slide fade">
+        <img src="latest3.jpg" alt="Latest Art 3">
+      </div>
+      <a class="prev" onclick="plusSlides(-1, 'latest')">&#10094;</a>
+      <a class="next" onclick="plusSlides(1, 'latest')">&#10095;</a>
+    </div>
+  </section>
+
+  <!-- VIEW GALLERY BUTTON -->
+  <div class="center-btn">
+    <a href="gallery.html" class="primary-link">View Full Gallery</a>
+  </div>
 
   <!-- FOOTER -->
   <footer class="site-footer">
     <p>© <span id="year"></span> Klasik Sining. All rights reserved.</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="home.js"></script>
 </body>
 </html>

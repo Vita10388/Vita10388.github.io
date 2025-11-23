@@ -1,127 +1,157 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const main = document.querySelector('main');
-  if (!main) return;
+    const main = document.querySelector('main');
+    if (!main) return;
 
-  let openPanel = null;
-  let openTile = null;
+    let openPanel = null;
+    let openTile = null;
 
-  // helper: convert category string to valid class
-  const slugify = (text) => text?.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') || '';
+    // --- FIX: Scrollbar Compensation Logic START ---
+    // Function to accurately measure the scrollbar width
+    const getScrollbarWidth = () => {
+        const outer = document.createElement('div');
+        outer.style.visibility = 'hidden';
+        // Force the appearance of a scrollbar so we can measure its width
+        outer.style.overflow = 'scroll'; 
+        document.body.appendChild(outer);
 
-  // close existing panel
-  const closePanel = () => {
-    if (openPanel) {
-      // pause any videos
-      openPanel.querySelectorAll('video').forEach(v => {
-        try { v.pause(); v.currentTime = 0; } catch(e) {}
-        // ADD THIS LINE
-      document.body.classList.remove('modal-open');
-      });
-      openPanel.remove();
-      openPanel = null;
-      openTile = null;
-    }
-  };
+        const inner = document.createElement('div');
+        outer.appendChild(inner);
 
-  // create panel from a tile
-  const createPanel = (tile) => {
-    closePanel();
+        // Width = outer container width - inner content width
+        const scrollbarWidth = (outer.offsetWidth - inner.offsetWidth);
 
-    const title = tile.dataset.title || tile.querySelector('h3')?.textContent || '';
-    const creator = tile.dataset.creator || tile.querySelector('.creator')?.textContent || '';
-    const cat = tile.dataset.category || tile.querySelector('.cat')?.textContent || '';
-    const slug = slugify(cat);
+        outer.remove(); // Clean up the temporary element
+        return scrollbarWidth;
+    };
 
-    // get media source
-    let src = tile.dataset.src || tile.querySelector('img')?.src || tile.querySelector('video')?.dataset.src || tile.querySelector('video')?.src || '';
-    const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(src) || !!tile.querySelector('video');
-
-    // panel wrapper
-    const panel = document.createElement('div');
-    panel.className = 'expanded-panel';
-    if (slug) panel.classList.add('cat-' + slug);
-
-    // close button
-    const closeBtn = document.createElement('button');
-    closeBtn.className = 'expanded-close';
-    closeBtn.textContent = '✕';
-    closeBtn.title = 'Close';
-    closeBtn.addEventListener('click', closePanel);
-    panel.appendChild(closeBtn);
-
-    // inner layout
-    const inner = document.createElement('div');
-    inner.className = 'expanded-inner';
-
-   // gallery.js (CORRECTED)
-const mediaWrap = document.createElement('div');
-mediaWrap.className = 'media-wrap'; // ✅ CHANGED from 'expanded-media' to 'media-wrap'
+    // Global variable to store the calculated width
+    let scrollbarCompensation = 0;
+    // --- FIX: Scrollbar Compensation Logic END ---
 
 
-    if (isVideo) {
-      const video = document.createElement('video');
-      const vTag = tile.querySelector('video');
-      video.src = vTag?.dataset.src || vTag?.src || src;
-      video.controls = true;
-      video.autoplay = true;
-      video.playsInline = true;
-      mediaWrap.appendChild(video);
-    } else {
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = title;
-      mediaWrap.appendChild(img);
-    }
+    // helper: convert category string to valid class
+    const slugify = (text) => text?.toLowerCase().replace(/\s+/g, '-').replace(/[^\w-]/g, '') || '';
 
-    const infoWrap = document.createElement('div');
-    infoWrap.className = 'expanded-info';
-    const h = document.createElement('h3'); h.textContent = title;
-    const pCreator = document.createElement('p'); pCreator.className = 'meta-row'; pCreator.textContent = 'By ' + creator;
-    infoWrap.appendChild(h);
-    infoWrap.appendChild(pCreator);
+    // close existing panel
+    const closePanel = () => {
+        if (openPanel) {
+            // pause any videos
+            openPanel.querySelectorAll('video').forEach(v => {
+                try { v.pause(); v.currentTime = 0; } catch(e) {}
+            });
+            
+            // FIX: Remove compensation padding when closing to restore normal layout
+            document.body.style.paddingRight = ''; 
+            
+            openPanel.remove();
+            openPanel = null;
+            openTile = null;
+        }
+    };
 
-    inner.appendChild(mediaWrap);
-    inner.appendChild(infoWrap);
-    panel.appendChild(inner);
+    // create panel from a tile
+    const createPanel = (tile) => {
+        closePanel();
 
-    return panel;
-  };
+        const title = tile.dataset.title || tile.querySelector('h3')?.textContent || '';
+        const creator = tile.dataset.creator || tile.querySelector('.creator')?.textContent || '';
+        const cat = tile.dataset.category || tile.querySelector('.cat')?.textContent || '';
+        const slug = slugify(cat);
 
-  // click handler for tiles
-  main.addEventListener('click', (e) => {
-    const tile = e.target.closest('.tile');
-    if (!tile) return;
+        // get media source
+        let src = tile.dataset.src || tile.querySelector('img')?.src || tile.querySelector('video')?.dataset.src || tile.querySelector('video')?.src || '';
+        const isVideo = /\.(mp4|mov|webm|ogg)$/i.test(src) || !!tile.querySelector('video');
 
-    // toggle if same tile
-    if (tile === openTile) {
-      closePanel();
-      return;
-    }
+        // panel wrapper
+        const panel = document.createElement('div');
+        panel.className = 'expanded-panel';
+        if (slug) panel.classList.add('cat-' + slug);
 
-    const panel = createPanel(tile);
-// ADD THIS LINE: Apply the class to prevent scrolling and jumping
-    document.body.classList.add('modal-open');
-    
-    // insert panel below the tile's category section
-    const section = tile.closest('.category-section');
-    if (section) section.after(panel);
-    else tile.after(panel);
+        // close button
+        const closeBtn = document.createElement('button');
+        closeBtn.className = 'expanded-close';
+        closeBtn.textContent = '✕';
+        closeBtn.title = 'Close';
+        closeBtn.addEventListener('click', closePanel);
+        panel.appendChild(closeBtn);
 
-    // scroll into view
-  
+        // inner layout
+        const inner = document.createElement('div');
+        inner.className = 'expanded-inner';
 
-    openPanel = panel;
-    openTile = tile;
-  });
+        // FIX: Corrected class name for centering
+        const mediaWrap = document.createElement('div');
+        mediaWrap.className = 'media-wrap'; 
 
-  // close on ESC
-  document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
+        if (isVideo) {
+            const video = document.createElement('video');
+            const vTag = tile.querySelector('video');
+            video.src = vTag?.dataset.src || vTag?.src || src;
+            video.controls = true;
+            video.autoplay = true;
+            video.playsInline = true;
+            mediaWrap.appendChild(video);
+        } else {
+            const img = document.createElement('img');
+            img.src = src;
+            img.alt = title;
+            mediaWrap.appendChild(img);
+        }
 
-  // click outside panel closes it
-  document.addEventListener('click', (e) => {
-    if (!openPanel) return;
-    if (!openPanel.contains(e.target) && !e.target.closest('.tile')) {
-      if (e.target.closest('main')) closePanel();
-    }
-  });
+        const infoWrap = document.createElement('div');
+        infoWrap.className = 'expanded-info';
+        const h = document.createElement('h3'); h.textContent = title;
+        const pCreator = document.createElement('p'); pCreator.className = 'meta-row'; pCreator.textContent = 'By ' + creator;
+        infoWrap.appendChild(h);
+        infoWrap.appendChild(pCreator);
+
+        inner.appendChild(mediaWrap);
+        inner.appendChild(infoWrap);
+        panel.appendChild(inner);
+
+        return panel;
+    };
+
+    // click handler for tiles
+    main.addEventListener('click', (e) => {
+        const tile = e.target.closest('.tile');
+        if (!tile) return;
+
+        // toggle if same tile
+        if (tile === openTile) {
+            closePanel();
+            return;
+        }
+        
+        // FIX: Apply compensation padding BEFORE opening the panel
+        // Check if a scrollbar is present AND we haven't calculated the width yet
+        if (document.body.scrollHeight > window.innerHeight && scrollbarCompensation === 0) {
+            scrollbarCompensation = getScrollbarWidth();
+        }
+        document.body.style.paddingRight = `${scrollbarCompensation}px`;
+
+
+        const panel = createPanel(tile);
+
+        // insert panel below the tile's category section
+        const section = tile.closest('.category-section');
+        if (section) section.after(panel);
+        else tile.after(panel);
+
+        // NOTE: The unnecessary scrollIntoView line has been removed from this section.
+
+        openPanel = panel;
+        openTile = tile;
+    });
+
+    // close on ESC
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closePanel(); });
+
+    // click outside panel closes it
+    document.addEventListener('click', (e) => {
+        if (!openPanel) return;
+        if (!openPanel.contains(e.target) && !e.target.closest('.tile')) {
+            if (e.target.closest('main')) closePanel();
+        }
+    });
 });

@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
       // pause any videos
       openPanel.querySelectorAll('video').forEach(v => {
         try { v.pause(); v.currentTime = 0; } catch(e) {}
+        // ADD THIS LINE
+      document.body.classList.remove('modal-open');
       });
       openPanel.remove();
       openPanel = null;
@@ -97,7 +99,9 @@ mediaWrap.className = 'media-wrap'; // ✅ CHANGED from 'expanded-media' to 'med
     }
 
     const panel = createPanel(tile);
-
+// ADD THIS LINE: Apply the class to prevent scrolling and jumping
+    document.body.classList.add('modal-open');
+    
     // insert panel below the tile's category section
     const section = tile.closest('.category-section');
     if (section) section.after(panel);

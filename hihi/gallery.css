@@ -91,23 +91,31 @@ main.wrap {
 /* =========================
    SIGN UP / LOGIN BUTTON - PLAIN
    ========================= */
+/* PLAIN SIGN UP BUTTON */
 .primary-link {
     display: inline-block;
     border: 2px solid #254117;
-    background: transparent;  /* plain background */
-    color: #254117;           /* text color */
+    background: transparent; /* plain background */
+    color: #254117;          /* text color */
     border-radius: 6px;
     padding: 0.5rem 1rem;
     font-weight: 600;
-    transition: background 0.3s, color 0.3s; /* simple hover */
-    position: relative;       /* keep for layout */
+    transition: background 0.3s, color 0.3s; /* only color/background transition */
+    position: relative;
     z-index: 1;
 }
 
+/* REMOVE animation pseudo-element completely */
+.primary-link::before {
+    display: none;
+    content: none;
+}
+
 .primary-link:hover {
-    background: #C1E1C1;  /* light green hover */
+    background: #C1E1C1;  /* simple hover color */
     color: #000000;        /* text black on hover */
 }
+
 
 /* Remove pseudo-element animation */
 .primary-link::before {

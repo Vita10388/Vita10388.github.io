@@ -547,3 +547,7 @@ main.wrap {
         width: 90%;
     }
 }
+/* FIX: Prevents page content from shifting when the expanded gallery panel opens */
+body.modal-open {
+    overflow: hidden; /* Stops the main page from scrolling */
+}

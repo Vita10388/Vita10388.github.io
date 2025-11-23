@@ -76,24 +76,25 @@ a {
    SIGN UP / LOGIN BUTTON
 ========================= */
 .primary-link {
-  background: transparent;
-  color: #254117;
+  background: #254117;       /* filled green by default */
+  color: #ffffff;            /* white text */
   padding: 0.5rem 1rem;
   border-radius: 6px;
   font-weight: 600;
-  border: 1px solid #254117;   /* thin border */
+  border: none;              /* remove outline/border */
   transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .primary-link:hover {
-  background: #7bc46a;   /* green hover */
-  color: #ffffff;        /* white text on hover */
-  transform: translateY(-2px);
+  background: #7bc46a;       /* lighter green hover */
+  color: #ffffff;            /* text stays white */
+  transform: translateY(-2px); /* slight lift on hover */
 }
 
 .primary-link::before {
-  display: none !important;   /* remove any fill animation */
+  display: none !important;  /* remove any previous animation */
 }
+
 
 /* =========================
    BURGER MENU (mobile)

@@ -80,38 +80,22 @@ a {
 
 /* SIGN UP / LOGIN BUTTON */
 .primary-link {
-  position: relative;
-  display: inline-block;
-  border: 2px solid #254117;
-  background: transparent;
-  color: #254117;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  overflow: hidden;
-  transition: color 0.4s ease;
-  z-index: 1;
-}
-
-.primary-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #C1E1C1;
-  z-index: -1;
-  transition: width 0.4s ease;
+.primary-link {
+    display: inline-block;
+    border: 2px solid #254117;
+    background: transparent;  /* no animation */
+    color: #254117;
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s;  /* simple hover effect only */
 }
 
 .primary-link:hover {
-  color: #AFE1AF;
+    background: #C1E1C1;   /* optional hover color */
+    color: #000000;
 }
 
-.primary-link:hover::before {
-  width: 100%;
-}
 
 /* BURGER MENU */
 .burger {

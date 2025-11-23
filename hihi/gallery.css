@@ -63,16 +63,22 @@ main.wrap {
     align-items: center;
 }
 
-.nav-link {
+/* ALL NAV LINKS SAME STYLE */
+.nav-link,
+.primary-link {
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    transition: background 0.3s, transform 0.3s, color 0.3s;
-    display: inline-block;
     background: transparent;
     color: #254117;
+    transition: background 0.3s, transform 0.3s, color 0.3s;
+    display: inline-block;
+    font-weight: 500;
+    border: none; /* remove outline from Sign Up */
 }
 
-.nav-link:hover {
+/* Hover for ALL nav links (Home, About, Login, Sign Up) */
+.nav-link:hover,
+.primary-link:hover {
     background: #7bc46a;
     color: #ffffff;
     transform: translateY(-2px);
@@ -84,33 +90,6 @@ main.wrap {
     background: #ffffff;
     color: #254117;
 }
-
-/* SIGN UP - SAME AS OTHER LINKS, NO OUTLINE, NO FILL */
-.primary-link {
-    background: transparent;
-    color: #254117;
-    padding: 0.5rem 1rem;
-    border-radius: 5px;
-    font-weight: 600;
-    display: inline-block;
-    border: none !important;
-    outline: none !important;
-    transition: background 0.3s, transform 0.3s, color 0.3s;
-}
-
-.primary-link:hover {
-    background: #7bc46a;
-    color: #ffffff;
-    transform: translateY(-2px);
-}
-
-/* Remove any leftover animation */
-.primary-link::before,
-.primary-link::after {
-    content: none !important;
-    display: none !important;
-}
-
 
 /* BURGER MENU */
 .burger {

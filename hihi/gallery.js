@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const inner = document.createElement('div');
         inner.className = 'expanded-inner';
 
-        // FIX: Corrected class name for centering
+        // FIX: Corrected class name for centering (media-wrap)
         const mediaWrap = document.createElement('div');
         mediaWrap.className = 'media-wrap'; 
 
@@ -124,7 +124,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         
         // FIX: Apply compensation padding BEFORE opening the panel
-        // Check if a scrollbar is present AND we haven't calculated the width yet
         if (document.body.scrollHeight > window.innerHeight && scrollbarCompensation === 0) {
             scrollbarCompensation = getScrollbarWidth();
         }
@@ -138,7 +137,8 @@ document.addEventListener('DOMContentLoaded', () => {
         if (section) section.after(panel);
         else tile.after(panel);
 
-        // NOTE: The unnecessary scrollIntoView line has been removed from this section.
+        // ✅ RESTORED: The original logic to scroll the page down to the panel
+        setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80); 
 
         openPanel = panel;
         openTile = tile;

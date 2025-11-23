@@ -497,12 +497,3 @@ main.wrap {
         width: 90%;
     }
 }
-.fullscreen-img {
-    max-width: 90vw;    /* 90% of viewport width */
-    max-height: 90vh;   /* 90% of viewport height */
-    width: auto;
-    height: auto;
-    display: block;
-    margin: 0 auto;
-}
-

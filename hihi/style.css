@@ -20,7 +20,7 @@ a {
 
 /* HEADER */
 .site-header {
-  background: #fff; /* solid white so nav items don’t show slideshow behind */
+  background: #fff; /* solid white to prevent slideshow showing through */
   border-bottom: 1px solid #e0e0e0;
   padding: 1rem 0;
   position: sticky;
@@ -55,18 +55,19 @@ a {
   align-items: center;
 }
 
+/* Nav link normal and hover */
 .nav-link {
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  background: transparent; /* make box transparent normally */
-  transition: background 0.3s, transform 0.3s;
+  background: transparent; /* normal transparent box */
+  transition: background 0.3s, transform 0.3s, color 0.3s;
   color: #111; /* text color */
 }
 
 .nav-link:hover {
-  background: #7bc46a; /* green on hover */
+  background: #7bc46a; /* green box on hover */
+  color: #fff;          /* text becomes white on hover */
   transform: translateY(-2px);
-  color: #fff; /* text stays white on hover */
 }
 
 /* SIGN UP / LOGIN BUTTON */
@@ -74,34 +75,17 @@ a {
   position: relative;
   display: inline-block;
   border: 2px solid #254117;
-  background: transparent;
-  color: #254117;
+  background: transparent; /* transparent normal */
+  color: #254117;          /* text color */
   border-radius: 6px;
   padding: 0.5rem 1rem;
   font-weight: 600;
-  overflow: hidden;
-  transition: color 0.4s ease;
-  z-index: 1;
-}
-
-.primary-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #C1E1C1;
-  z-index: -1;
-  transition: width 0.4s ease;
+  transition: color 0.4s ease, background 0.4s ease;
 }
 
 .primary-link:hover {
-  color: #AFE1AF;
-}
-
-.primary-link:hover::before {
-  width: 100%;
+  color: #7bc46a;  /* text color changes on hover */
+  background: transparent; /* remove fill effect */
 }
 
 /* BURGER MENU */

@@ -56,16 +56,27 @@ a {
 }
 
 .nav-link {
-  background: transparent;
+  background: transparent;   /* default background */
+  color: #254117;            /* default text color */
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
+  display: inline-block;
 }
 
 .nav-link:hover {
-  background: #7bc46a;
+  background: #7bc46a;       /* green on hover */
+  color: #ffffff;            /* text turns white on hover */
   transform: translateY(-2px);
 }
+
+.nav-link.active,
+.nav-link.current,
+.nav-link:active {
+  background: #ffffff;       /* prevents black box on active page */
+  color: #254117;            /* text stays normal */
+}
+
 
 /* SIGN UP / LOGIN BUTTON */
 .primary-link {

@@ -1,4 +1,6 @@
-/* GENERAL RESET */
+/* =========================
+   GENERAL RESET
+========================= */
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +20,9 @@ a {
   color: inherit;
 }
 
-/* HEADER */
+/* =========================
+   HEADER
+========================= */
 .site-header {
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
@@ -47,7 +51,9 @@ a {
   transform: translateY(-3px);
 }
 
-/* NAVIGATION */
+/* =========================
+   NAVIGATION
+========================= */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -66,22 +72,9 @@ a {
   transform: translateY(-2px);
 }
 
-/* SIGN UP / LOGIN GREEN FILL BUTTON (restored) */
-.primary-link {
-  position: relative;
-  display: inline-block;
-  border: 2px solid #254117;
-  background: transparent;
-  color: #254117;
-  border-radius: 6px;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  overflow: hidden;
-  transition: color 0.4s ease;
-  z-index: 1;
-}
-
-/* CLEAN SIGN UP BUTTON (NO FILL, NO ANIMATION) */
+/* =========================
+   SIGN UP / LOGIN BUTTON
+========================= */
 .primary-link {
   background: transparent;
   color: #254117;
@@ -93,18 +86,18 @@ a {
 }
 
 .primary-link:hover {
-  background: #7bc46a;   /* same green hover */
-  color: #ffffff;        /* white text like others */
+  background: #7bc46a;   /* green hover */
+  color: #ffffff;        /* white text on hover */
   transform: translateY(-2px);
 }
 
 .primary-link::before {
-  /* REMOVE the fill animation completely */
-  display: none !important;
+  display: none !important;   /* remove any fill animation */
 }
 
-
-/* BURGER MENU (for mobile) */
+/* =========================
+   BURGER MENU (mobile)
+========================= */
 .burger {
   display: none;
   flex-direction: column;
@@ -120,7 +113,9 @@ a {
   background: #111;
 }
 
-/* GALLERY PAGE MAIN WRAPPER */
+/* =========================
+   GALLERY PAGE MAIN WRAPPER
+========================= */
 .gallery-page {
   padding: 2rem 0;
 }
@@ -171,7 +166,9 @@ a {
   background: #f3f3f3;
 }
 
-/* Footer */
+/* =========================
+   FOOTER
+========================= */
 .site-footer {
   background: #f8f8f8;
   padding: 1rem 0;
@@ -183,7 +180,9 @@ a {
   font-weight: 600;
 }
 
-/* RESPONSIVE */
+/* =========================
+   RESPONSIVE DESIGN
+========================= */
 @media (max-width: 768px) {
   .main-nav ul {
     display: none;

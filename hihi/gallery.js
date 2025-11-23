@@ -108,7 +108,7 @@ mediaWrap.className = 'media-wrap'; // ✅ CHANGED from 'expanded-media' to 'med
     else tile.after(panel);
 
     // scroll into view
-    setTimeout(() => panel.scrollIntoView({ behavior: 'smooth', block: 'center' }), 80);
+  
 
     openPanel = panel;
     openTile = tile;

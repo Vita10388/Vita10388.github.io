@@ -53,6 +53,24 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+// Lightbox functionality
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = lightbox.querySelector('img');
+const tiles = document.querySelectorAll('.tile img');
+
+tiles.forEach(tile => {
+  tile.addEventListener('click', () => {
+    lightboxImg.src = tile.src;  // show clicked image
+    lightbox.classList.add('active');
+  });
+});
+
+// Close lightbox when clicking outside the image
+lightbox.addEventListener('click', (e) => {
+  if (e.target !== lightboxImg) {
+    lightbox.classList.remove('active');
+  }
+});
 
   // Footer year
   const yearEl = document.getElementById('year');

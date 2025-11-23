@@ -149,6 +149,22 @@ main.wrap {
   
   /* Adds a little space above and below the text for better readability */
   padding: 1rem 0; 
+    /* --- GALLERY EXPANDED IMAGE ALIGNMENT FIX --- */
+/* 1. Ensure the image container centers its content (the image/video) */
+.expanded-panel .media-wrap {
+  display: flex; /* Use flexbox for centering */
+  justify-content: center; /* Center content horizontally */
+  align-items: center; /* Center content vertically (if needed) */
+  width: 100%; /* Ensure it takes full available width */
+}
+
+/* 2. Adjust the max size of the image/video within the wrap */
+.expanded-panel .media-wrap img,
+.expanded-panel .media-wrap video {
+  max-width: 90%; /* Prevent the image from touching the edges */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Important for preventing small spacing issues */
+}
 }
 /* GALLERY CONTROLS */
 .gallery-controls {

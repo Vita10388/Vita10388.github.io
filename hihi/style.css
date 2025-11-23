@@ -185,7 +185,7 @@ main.wrap {
 
 .expanded-panel .media-wrap img,
 .expanded-panel .media-wrap video {
-  max-width: 90%; 
+  max-width: 65%; 
   height: auto; 
   display: block; 
 }

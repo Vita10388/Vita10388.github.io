@@ -140,7 +140,16 @@ main.wrap {
 .gallery-page {
     padding: 2rem 0;
 }
-
+/* --- GALLERY EXPANDED PANEL ALIGNMENT FIX --- */
+/* Targets the container holding the title and creator text 
+   inside the expanded gallery view (.expanded-info) to center the text. */
+.expanded-panel .expanded-info {
+  /* This centers the text elements (h3 and p) horizontally */
+  text-align: center;
+  
+  /* Adds a little space above and below the text for better readability */
+  padding: 1rem 0; 
+}
 /* GALLERY CONTROLS */
 .gallery-controls {
     width: 90%;

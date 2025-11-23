@@ -81,25 +81,28 @@ a {
   z-index: 1;
 }
 
-.primary-link::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 100%;
-  background: #C1E1C1; /* your requested fill color */
-  z-index: -1;
-  transition: width 0.4s ease;
+/* CLEAN SIGN UP BUTTON (NO FILL, NO ANIMATION) */
+.primary-link {
+  background: transparent;
+  color: #254117;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 600;
+  border: 1px solid #254117;   /* thin border */
+  transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .primary-link:hover {
-  color: #111;
+  background: #7bc46a;   /* same green hover */
+  color: #ffffff;        /* white text like others */
+  transform: translateY(-2px);
 }
 
-.primary-link:hover::before {
-  width: 100%;
+.primary-link::before {
+  /* REMOVE the fill animation completely */
+  display: none !important;
 }
+
 
 /* BURGER MENU (for mobile) */
 .burger {

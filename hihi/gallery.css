@@ -100,10 +100,6 @@ main.wrap {
     color: #254117;
 }
 
-.primary-link::before {
-    content: none;
-    display: none;
-}
 
 /* BURGER MENU */
 .burger {

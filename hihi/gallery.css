@@ -1,7 +1,3 @@
-/* =========================
-   GALLERY LAYOUT CSS
-   ========================= */
-
 /* GENERAL RESET */
 * {
     margin: 0;
@@ -16,6 +12,7 @@ body {
     line-height: 1.6;
 }
 
+/* LINKS */
 a {
     text-decoration: none;
     color: inherit;
@@ -40,12 +37,12 @@ a {
     align-items: center;
 }
 
-/* --- IMPORTANT: override for main so sections stack vertically --- */
+/* --- Override main to stack sections vertically --- */
 main.wrap {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-  align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: stretch;
 }
 
 .brand img {
@@ -71,7 +68,7 @@ main.wrap {
     color: #254117;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    transition: background 0.3s, transform 0.3s, color 0.3s;
+    transition: background 0.3s, transform 0.3s;
     display: inline-block;
 }
 
@@ -84,42 +81,28 @@ main.wrap {
 .nav-link.active,
 .nav-link.current,
 .nav-link:active {
-    background: #ffffff;
+    background: transparent;
     color: #254117;
 }
 
-/* =========================
-   SIGN UP / LOGIN BUTTON - PLAIN
-   ========================= */
-/* PLAIN SIGN UP BUTTON */
+/* SIGN UP / LOGIN BUTTON - now plain like nav links */
 .primary-link {
-    display: inline-block;
-    border: 2px solid #254117;
-    background: transparent; /* plain background */
-    color: #254117;          /* text color */
-    border-radius: 6px;
+    background: transparent;
+    color: #254117;
     padding: 0.5rem 1rem;
-    font-weight: 600;
-    transition: background 0.3s, color 0.3s; /* only color/background transition */
-    position: relative;
-    z-index: 1;
-}
-
-/* REMOVE animation pseudo-element completely */
-.primary-link::before {
-    display: none;
-    content: none;
+    border: none;
+    border-radius: 5px;
+    transition: none;
 }
 
 .primary-link:hover {
-    background: #C1E1C1;  /* simple hover color */
-    color: #000000;        /* text black on hover */
+    background: transparent;
+    color: #254117;
 }
 
-
-/* Remove pseudo-element animation */
 .primary-link::before {
     content: none;
+    display: none;
 }
 
 /* BURGER MENU */
@@ -135,21 +118,33 @@ main.wrap {
 .burger span {
     width: 25px;
     height: 3px;
-    background: #d9ead3;
+    background: #111;
 }
 
-/* GALLERY PAGE MAIN WRAPPER */
+/* FOOTER */
+.site-footer {
+    background: #f8f8f8;
+    padding: 1rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+#year {
+    font-weight: 600;
+}
+
+/* GALLERY PAGE */
 .gallery-page {
-    padding: 2rem 0;
     display: flex;
     flex-direction: column;
     gap: 2.5rem;
+    padding: 2rem 0;
     width: 90%;
     max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Individual category section */
+/* Category sections */
 .category-section {
     width: 100%;
     display: flex;
@@ -158,7 +153,6 @@ main.wrap {
     padding: 1.5rem 0;
 }
 
-/* Section header */
 .section-header {
     display: flex;
     align-items: baseline;
@@ -176,7 +170,6 @@ main.wrap {
     color: #777;
 }
 
-/* Horizontal scroll row for tiles */
 .row {
     display: grid;
     grid-auto-flow: column;
@@ -188,7 +181,6 @@ main.wrap {
     -webkit-overflow-scrolling: touch;
 }
 
-/* Each tile */
 .tile {
     background: #fff;
     border-radius: 10px;
@@ -227,16 +219,144 @@ main.wrap {
     margin: 0 0.9rem 0.9rem;
 }
 
-/* Make rows show more than one column on desktop */
-@media (min-width: 900px) {
-    .row {
-        grid-auto-columns: min(240px, 33%);
+/* Carousel section */
+.carousel-section {
+    text-align: center;
+    margin: 0;
+}
+
+.carousel-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 0;
+}
+
+.carousel-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.3rem;
+    color: #254117;
+    font-weight: 700;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.45s ease-in-out;
+    align-items: center;
+    white-space: nowrap;
+}
+
+.carousel-track img {
+    flex: 0 0 calc(25% - 1rem);
+    margin: 0 0.5rem;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 12px;
+    transition: transform 0.25s ease;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+}
+
+.carousel-track img:hover {
+    transform: scale(1.03);
+}
+
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #254117;
+    color: #fff;
+    border: none;
+    font-size: 1.6rem;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    border-radius: 50%;
+    opacity: 0.9;
+    transition: opacity 0.2s ease;
+    z-index: 10;
+}
+
+.carousel-btn:hover {
+    opacity: 1;
+}
+
+.carousel-btn.prev { left: 8px; }
+.carousel-btn.next { right: 8px; }
+
+/* HOME INTRO SECTION */
+.home-intro {
+    text-align: center;
+    padding: 2.5rem 1rem;
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    max-width: 1000px;
+    margin: 0 auto 2rem auto;
+}
+
+.home-intro h1 {
+    font-size: 2.25rem;
+    color: #254117;
+    margin-bottom: 0.8rem;
+}
+
+.home-intro p {
+    font-size: 1.05rem;
+    margin-bottom: 1.2rem;
+    color: #333;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .carousel-track img {
+        flex: 0 0 calc(33.333% - 1rem);
+        height: 300px;
     }
 }
 
-/* Responsive fix for mobile horizontal scroll */
 @media (max-width: 768px) {
-    .row {
-        grid-auto-columns: min(200px, 70%);
+    .main-nav ul {
+        display: none;
+        flex-direction: column;
+        background: #fff;
+        position: absolute;
+        right: 10px;
+        top: 60px;
+        border: 1px solid #ddd;
+        padding: 1rem;
+        gap: 0;
+    }
+
+    .main-nav ul.show {
+        display: flex;
+    }
+
+    .burger {
+        display: flex;
+    }
+
+    .carousel-track img {
+        flex: 0 0 calc(90% - 1rem);
+        height: 260px;
+    }
+
+    .home-intro h1 {
+        font-size: 1.8rem;
+    }
+
+    .home-intro p {
+        font-size: 1rem;
+    }
+
+    #gallery-search {
+        width: 90%;
     }
 }

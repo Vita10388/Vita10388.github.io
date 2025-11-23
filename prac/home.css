@@ -64,15 +64,17 @@ main.wrap {
 }
 
 .nav-link {
+  background: transparent;
   padding: 0.5rem 1rem;
   border-radius: 5px;
   transition: background 0.3s, transform 0.3s;
 }
 
 .nav-link:hover {
-  background: #f5f5f5;
+  background: #7bc46a;
   transform: translateY(-2px);
 }
+
 
 /* SIGN UP / LOGIN BUTTON */
 .primary-link {

@@ -1,70 +1,18 @@
-/* GENERAL RESET */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Inter', sans-serif;
-  background-color: #ffffff;
-  color: #111;
-  line-height: 1.6;
-}
-
-/* LINKS */
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/* HEADER */
-.site-header {
-  background: #fff;
-  border-bottom: 1px solid #e0e0e0;
-  padding: 1rem 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-}
-
-.wrap {
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.brand img {
-  height: 50px;
-  transition: transform 0.3s ease;
-  cursor: pointer;
-}
-
-.brand img:hover {
-  transform: translateY(-3px);
-}
-
-/* NAVIGATION */
-.main-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1rem;
-  align-items: center;
 }
 
 .nav-link {
+  background: transparent;
   background: transparent;   /* default background */
   color: #254117;            /* default text color */
   padding: 0.5rem 1rem;
   border-radius: 5px;
+  transition: background 0.3s, transform 0.3s;
   transition: background 0.3s, transform 0.3s, color 0.3s;
   display: inline-block;
 }
 
 .nav-link:hover {
+  background: #7bc46a;
   background: #7bc46a;       /* green on hover */
   color: #ffffff;            /* text turns white on hover */
   transform: translateY(-2px);
@@ -80,22 +28,38 @@ a {
 
 /* SIGN UP / LOGIN BUTTON */
 .primary-link {
-.primary-link {
-    display: inline-block;
-    border: 2px solid #254117;
-    background: transparent;  /* no animation */
-    color: #254117;
-    border-radius: 6px;
-    padding: 0.5rem 1rem;
-    font-weight: 600;
-    transition: background 0.3s, color 0.3s;  /* simple hover effect only */
+  position: relative;
+  display: inline-block;
+  border: 2px solid #254117;
+  background: transparent;
+  color: #254117;
+  border-radius: 6px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  overflow: hidden;
+  transition: color 0.4s ease;
+  z-index: 1;
+}
+
+.primary-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: #C1E1C1;
+  z-index: -1;
+  transition: width 0.4s ease;
 }
 
 .primary-link:hover {
-    background: #C1E1C1;   /* optional hover color */
-    color: #000000;
+  color: #AFE1AF;
 }
 
+.primary-link:hover::before {
+  width: 100%;
+}
 
 /* BURGER MENU */
 .burger {

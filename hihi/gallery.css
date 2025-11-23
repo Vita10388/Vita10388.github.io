@@ -85,15 +85,16 @@ main.wrap {
     color: #254117;
 }
 
-/* SIGN UP / LOGIN BUTTON - NO FILL-UP */
+/* SIGN UP - SAME AS OTHER LINKS, NO OUTLINE, NO FILL */
 .primary-link {
     background: transparent;
     color: #254117;
     padding: 0.5rem 1rem;
     border-radius: 5px;
-    border: 2px solid #254117;
     font-weight: 600;
     display: inline-block;
+    border: none !important;
+    outline: none !important;
     transition: background 0.3s, transform 0.3s, color 0.3s;
 }
 
@@ -102,6 +103,14 @@ main.wrap {
     color: #ffffff;
     transform: translateY(-2px);
 }
+
+/* Remove any leftover animation */
+.primary-link::before,
+.primary-link::after {
+    content: none !important;
+    display: none !important;
+}
+
 
 /* BURGER MENU */
 .burger {

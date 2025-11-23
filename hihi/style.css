@@ -1,6 +1,6 @@
 /* =========================
    GENERAL RESET
-========================= */
+   ========================= */
 * {
   margin: 0;
   padding: 0;
@@ -22,11 +22,11 @@ a {
 
 /* =========================
    HEADER
-========================= */
+   ========================= */
 .site-header {
   background: #fff;
   border-bottom: 1px solid #e0e0e0;
-  padding: 1rem 0;
+  padding: 1.2rem 0; /* increased padding to fix shrinking */
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -53,7 +53,7 @@ a {
 
 /* =========================
    NAVIGATION
-========================= */
+   ========================= */
 .main-nav ul {
   list-style: none;
   display: flex;
@@ -64,7 +64,7 @@ a {
 .nav-link {
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  transition: background 0.3s, transform 0.3s;
+  transition: background 0.3s, transform 0.3s, color 0.3s;
 }
 
 .nav-link:hover {
@@ -74,31 +74,34 @@ a {
 
 /* =========================
    SIGN UP / LOGIN BUTTON
-========================= */
+   ========================= */
 .primary-link {
-  background: #254117;       /* filled green by default */
-  color: #ffffff;            /* white text */
+  position: relative;
+  display: inline-block;
+  background: transparent;
+  color: #254117;
   padding: 0.5rem 1rem;
-  border-radius: 6px;
   font-weight: 600;
-  border: none;              /* remove outline/border */
+  border-radius: 6px;
+  border: none; /* remove any default outline/border */
+  cursor: pointer;
   transition: background 0.3s, color 0.3s, transform 0.3s;
 }
 
 .primary-link:hover {
-  background: #7bc46a;       /* lighter green hover */
-  color: #ffffff;            /* text stays white */
-  transform: translateY(-2px); /* slight lift on hover */
+  background: #7bc46a;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
-.primary-link::before {
-  display: none !important;  /* remove any previous animation */
+.primary-link:focus {
+  outline: none; /* removes browser default outline */
+  box-shadow: none;
 }
-
 
 /* =========================
    BURGER MENU (mobile)
-========================= */
+   ========================= */
 .burger {
   display: none;
   flex-direction: column;
@@ -116,7 +119,7 @@ a {
 
 /* =========================
    GALLERY PAGE MAIN WRAPPER
-========================= */
+   ========================= */
 .gallery-page {
   padding: 2rem 0;
 }
@@ -143,7 +146,7 @@ a {
   font-size: 1rem;
 }
 
-/* Category filter */
+/* CATEGORY FILTER */
 .category-filter {
   display: flex;
   flex-wrap: wrap;
@@ -167,9 +170,7 @@ a {
   background: #f3f3f3;
 }
 
-/* =========================
-   FOOTER
-========================= */
+/* FOOTER */
 .site-footer {
   background: #f8f8f8;
   padding: 1rem 0;
@@ -183,7 +184,7 @@ a {
 
 /* =========================
    RESPONSIVE DESIGN
-========================= */
+   ========================= */
 @media (max-width: 768px) {
   .main-nav ul {
     display: none;

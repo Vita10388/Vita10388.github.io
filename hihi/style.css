@@ -140,32 +140,56 @@ main.wrap {
 .gallery-page {
     padding: 2rem 0;
 }
-/* --- GALLERY EXPANDED PANEL ALIGNMENT FIX --- */
-/* Targets the container holding the title and creator text 
-   inside the expanded gallery view (.expanded-info) to center the text. */
-.expanded-panel .expanded-info {
-  /* This centers the text elements (h3 and p) horizontally */
-  text-align: center;
-  
-  /* Adds a little space above and below the text for better readability */
-  padding: 1rem 0; 
-    /* --- GALLERY EXPANDED IMAGE ALIGNMENT FIX --- */
-/* 1. Ensure the image container centers its content (the image/video) */
-.expanded-panel .media-wrap {
-  display: flex; /* Use flexbox for centering */
-  justify-content: center; /* Center content horizontally */
-  align-items: center; /* Center content vertically (if needed) */
-  width: 100%; /* Ensure it takes full available width */
+/* --- CORRECTED: GALLERY EXPANDED PANEL CENTERING STYLES --- */
+
+/* 1. Centers the full pop-up panel in the middle of the viewport */
+.expanded-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+    display: flex; 
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
 }
 
-/* 2. Adjust the max size of the image/video within the wrap */
+/* 2. Styles for the pop-up container box */
+.expanded-panel {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 80vw;
+    max-height: 90vh;
+    overflow-y: auto; 
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    z-index: 1001;
+    margin: auto; 
+}
+
+/* 3. Centers the text (Title, Creator) */
+.expanded-panel .expanded-info {
+  text-align: center;
+  padding: 1rem 0;  
+} 
+
+/* 4. Centers the media (Image/Video) inside its wrapper */
+.expanded-panel .media-wrap {
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  width: 100%; 
+}
+
 .expanded-panel .media-wrap img,
 .expanded-panel .media-wrap video {
-  max-width: 90%; /* Prevent the image from touching the edges */
-  height: auto; /* Maintain aspect ratio */
-  display: block; /* Important for preventing small spacing issues */
+  max-width: 90%; 
+  height: auto; 
+  display: block; 
 }
-}
+
 /* GALLERY CONTROLS */
 .gallery-controls {
     width: 90%;
@@ -517,6 +541,7 @@ main.wrap {
   .home-intro p {
     font-size: 1rem;
   }
+    
     
     #gallery-search {
         width: 90%;

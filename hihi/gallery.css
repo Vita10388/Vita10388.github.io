@@ -2,100 +2,233 @@
    GALLERY LAYOUT CSS
    ========================= */
 
-/* Wrapper for all categories */
-.gallery-page {
+/* GENERAL RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #ffffff;
+    color: #111;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* HEADER */
+.site-header {
+    background: #fff;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.wrap {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* --- IMPORTANT: override for main so sections stack vertically --- */
+main.wrap {
   display: flex;
-  flex-direction: column; /* stack categories vertically */
-  gap: 2.5rem; /* spacing between categories */
-  padding: 2rem 0;
-  width: 90%;
-  max-width: 1200px;
-  margin: 0 auto;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: stretch;
+}
+
+.brand img {
+    height: 50px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.brand img:hover {
+    transform: translateY(-3px);
+}
+
+/* NAVIGATION */
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.nav-link {
+    background: transparent;
+    color: #254117;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.3s, color 0.3s;
+    display: inline-block;
+}
+
+.nav-link:hover {
+    background: #7bc46a;
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.nav-link.active,
+.nav-link.current,
+.nav-link:active {
+    background: #ffffff;
+    color: #254117;
+}
+
+/* =========================
+   SIGN UP / LOGIN BUTTON - PLAIN
+   ========================= */
+.primary-link {
+    display: inline-block;
+    border: 2px solid #254117;
+    background: transparent;  /* plain background */
+    color: #254117;           /* text color */
+    border-radius: 6px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    transition: background 0.3s, color 0.3s; /* simple hover */
+    position: relative;       /* keep for layout */
+    z-index: 1;
+}
+
+.primary-link:hover {
+    background: #C1E1C1;  /* light green hover */
+    color: #000000;        /* text black on hover */
+}
+
+/* Remove pseudo-element animation */
+.primary-link::before {
+    content: none;
+}
+
+/* BURGER MENU */
+.burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.burger span {
+    width: 25px;
+    height: 3px;
+    background: #d9ead3;
+}
+
+/* GALLERY PAGE MAIN WRAPPER */
+.gallery-page {
+    padding: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Individual category section */
 .category-section {
-  width: 100%;
-  display: flex;
-  flex-direction: column; /* stack header + row vertically */
-  border-bottom: 1px solid #eee;
-  padding: 1.5rem 0; /* breathing room inside section */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #eee;
+    padding: 1.5rem 0;
 }
 
 /* Section header */
 .section-header {
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-  margin-bottom: 1rem;
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 1rem;
 }
 
 .section-header h2 {
-  font-size: 1.25rem;
-  letter-spacing: 0.2px;
+    font-size: 1.25rem;
+    letter-spacing: 0.2px;
 }
 
 .section-header .count {
-  font-size: 0.95rem;
-  color: #777;
+    font-size: 0.95rem;
+    color: #777;
 }
 
 /* Horizontal scroll row for tiles */
 .row {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: min(280px, 80%);
-  gap: 1.5rem; /* horizontal spacing between tiles */
-  overflow-x: auto;
-  padding-bottom: 10px;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: min(280px, 80%);
+    gap: 1.5rem;
+    overflow-x: auto;
+    padding-bottom: 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
 }
 
 /* Each tile */
 .tile {
-  background: #fff;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
-  cursor: pointer;
-  scroll-snap-align: start;
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  min-height: 160px;
-  transition: transform 0.25s, box-shadow 0.25s;
+    background: #fff;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    cursor: pointer;
+    scroll-snap-align: start;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 160px;
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.tile:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
 .tile img,
 .tile video {
-  width: 100%;
-  display: block;
-  object-fit: cover;
-  max-height: 220px;
+    width: 100%;
+    display: block;
+    object-fit: cover;
+    max-height: 220px;
 }
 
 .tile h3 {
-  font-size: 1rem;
-  margin: 0.6rem 0 0.2rem 0.9rem;
+    font-size: 1rem;
+    margin: 0.6rem 0 0.2rem 0.9rem;
 }
 
 .tile .meta {
-  font-size: 0.85rem;
-  color: #666;
-  margin: 0 0.9rem 0.9rem;
+    font-size: 0.85rem;
+    color: #666;
+    margin: 0 0.9rem 0.9rem;
 }
 
 /* Make rows show more than one column on desktop */
 @media (min-width: 900px) {
-  .row {
-    grid-auto-columns: min(240px, 33%);
-  }
+    .row {
+        grid-auto-columns: min(240px, 33%);
+    }
 }
 
 /* Responsive fix for mobile horizontal scroll */
 @media (max-width: 768px) {
-  .row {
-    grid-auto-columns: min(200px, 70%);
-  }
+    .row {
+        grid-auto-columns: min(200px, 70%);
+    }
 }

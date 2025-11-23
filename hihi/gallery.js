@@ -80,11 +80,12 @@ document.addEventListener('DOMContentLoaded', () => {
       video.style.maxHeight = '70vh';
       mediaWrap.appendChild(video);
     } else {
-      const img = document.createElement('img');
-      img.src = src;
-      img.alt = title;
-      mediaWrap.appendChild(img);
-    }
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = title;
+  img.classList.add('expanded-img'); // <- add this line
+  mediaWrap.appendChild(img);
+}
 
     const infoWrap = document.createElement('div');
     infoWrap.className = 'expanded-info';

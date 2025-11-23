@@ -51,8 +51,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const inner = document.createElement('div');
     inner.className = 'expanded-inner';
 
-    const mediaWrap = document.createElement('div');
-    mediaWrap.className = 'expanded-media';
+   // gallery.js (CORRECTED)
+const mediaWrap = document.createElement('div');
+mediaWrap.className = 'media-wrap'; // ✅ CHANGED from 'expanded-media' to 'media-wrap'
+
 
     if (isVideo) {
       const video = document.createElement('video');

@@ -84,7 +84,7 @@ main.wrap {
     color: #254117;
 }
 
-/* SIGN UP / LOGIN BUTTON - NOW PLAIN LIKE OTHER LINKS */
+/* SIGN UP / LOGIN BUTTON - GREEN HOVER, NO FILL ANIMATION */
 .primary-link {
     background: transparent;
     color: #254117;
@@ -97,9 +97,9 @@ main.wrap {
 }
 
 .primary-link:hover {
-    background: #f5f5f5;
+    background: #7bc46a; /* green hover background */
+    color: #ffffff;       /* text turns white on hover */
     transform: translateY(-2px);
-    color: #254117;
 }
 
 /* remove fill-up pseudo-element */
